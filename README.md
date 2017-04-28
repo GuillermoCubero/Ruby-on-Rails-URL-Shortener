@@ -1,24 +1,71 @@
-# README
+## Iteración 1
+Definición del la tarea
+  
+## Instalación de Rails 5.0.2
+```
+$ gem install rails -v 5.0.2
+```
+  
+## Creación de la aplicación
+```
+$ rails new short_url -T
+```
+  
+- -T skip test
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Arrancar el servidor en Cloud9
+```
+$ rails server -b $IP -p $PORT
+```
 
-Things you may want to cover:
+## Para visitar la aplicación
+https://short-url-guillermocubero.c9users.io/
 
-* Ruby version
+## Añadimos la gema rspec-rails al Gemfile
+```
+group :development, :test do
+  gem 'rspec-rails', '~> 3.5'
+end
+```
 
-* System dependencies
+## Ejecutamos el comando para inicializar spec
 
-* Configuration
+## Añadimos la gema capyvara al Gemfile 
+```
+group :development, :test do
+  gem 'capybara'
+end
+```
 
-* Database creation
+## Creamos un test para el greetings_controller_spec.rb ???
+```
+rails generate ...
+```
 
-* Database initialization
+## Creamos la carpeta features en /short_url/spec y creamos un test para la hello page
+```
 
-* How to run the test suite
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+## Hacemos correr los test esperando el ciclo rojo
+```
+rails spec spec/features/hello_page_spec.rb
+```
 
-* Deployment instructions
+## Definimos en el greetings_controller un método para renderizar un Hello World!
+```
+def hello
+  render html: "Hello, World!"
+end
+```
 
-* ...
+## Añadimos en el archivo /config/routes.rb
+```
+get 'greetings/hello'
+```
+
+## Ejecutamos de nuevo los test esperando el ciclo rojo
+```
+rails spec spec/features/hello_page_spec.rb
+```
+
