@@ -1,5 +1,7 @@
 ## Iteración 1
-Definición del la tarea
+Se realizará un esqueleto de una aplicación Rails con una página de inicio básica (estática).
+La aplicación se desarrollará en Rails 5 con una página básica que muestre “Hello World!”.
+
   
 ## Instalación de Rails 5.0.2
 ```
@@ -64,8 +66,13 @@ end
 get 'greetings/hello'
 ```
 
-## Ejecutamos de nuevo los test esperando el ciclo rojo
+## Ejecutamos de nuevo los test esperando el ciclo verde
 ```
 rails spec spec/features/hello_page_spec.rb
+```
+
+## Añadimos al gitignore
+```
+config/database.yml
 ```
 
