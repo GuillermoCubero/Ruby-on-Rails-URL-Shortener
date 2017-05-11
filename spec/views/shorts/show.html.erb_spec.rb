@@ -3,12 +3,12 @@ require 'rails_helper'
 RSpec.describe "shorts/show", type: :view do
   before(:each) do
     @short = assign(:short, Short.create!(
-      :user_url => "User Url"
+      :user_url => "http://userurl.com"
     ))
   end
 
   it "renders attributes in <p>" do
     render
-    expect(rendered).to match(/User Url/)
+    expect(rendered).to match('http://userurl.com')
   end
 end
