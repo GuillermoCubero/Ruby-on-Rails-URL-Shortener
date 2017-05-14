@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe "shorts/new", type: :view do
   before(:each) do
     assign(:short, Short.new(
-      :user_url => "MyString"
+      :url => "http://myurl.com"
     ))
   end
 
@@ -12,7 +12,7 @@ RSpec.describe "shorts/new", type: :view do
 
     assert_select "form[action=?][method=?]", shorts_path, "post" do
 
-      assert_select "input#short_user_url[name=?]", "short[user_url]"
+      assert_select "input#short_url[name=?]", "short[url]"
     end
   end
 end

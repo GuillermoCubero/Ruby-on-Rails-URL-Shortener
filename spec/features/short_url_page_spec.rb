@@ -2,28 +2,28 @@ require 'rails_helper'
 
 RSpec.feature 'RSpec Test', :type => :feature do
   
-  scenario 'Visit the Short Url Page' do
+  before do
     visit '/'
+  end
+  
+  scenario 'Visit the Short Url Page' do
     expect(page).to have_title('URL shorter')
   end
   
   scenario 'Short a blank URL' do
-    visit '/'
-    fill_in 'User url', with: ''
+    fill_in 'Url', with: ''
     click_button 'Create Short'
-    expect(page).to have_content("User url can't be blank")
+    expect(page).to have_content("Url can't be blank")
   end
   
   scenario 'Short an invalid URL' do
-    visit '/'
-    fill_in 'User url', with: 'http://urldepruebaquefallará'
+    fill_in 'Url', with: 'http://urldepruebaquefallará'
     click_button 'Create Short'
-    expect(page).to have_content('User url is invalid')
+    expect(page).to have_content('Url is invalid')
   end
   
   scenario 'Short a valid URL' do
-    visit '/'
-    fill_in 'User url', with: 'https://www.google.com'
+    fill_in 'Url', with: 'https://www.google.com'
     click_button 'Create Short'
     expect(page).to have_content('Short was successfully created.')
     click_link('id-of-link') # revisar esta parte en el futuro.

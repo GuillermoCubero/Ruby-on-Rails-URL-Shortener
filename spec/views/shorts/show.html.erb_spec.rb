@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe "shorts/show", type: :view do
   before(:each) do
     @short = assign(:short, Short.create!(
-      :user_url => "http://userurl.com"
+      :url => "http://userurl.com"
     ))
   end
 

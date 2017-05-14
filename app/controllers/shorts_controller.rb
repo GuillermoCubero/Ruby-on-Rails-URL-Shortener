@@ -69,6 +69,6 @@ class ShortsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def short_params
-      params.require(:short).permit(:user_url)
+      params.require(:short).permit(:url)
     end
 end

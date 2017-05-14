@@ -4,10 +4,10 @@ RSpec.describe "shorts/index", type: :view do
   before(:each) do
     assign(:shorts, [
       Short.create!(
-        :user_url => "http://userurl.com"
+        :url => "http://userurl.com"
       ),
       Short.create!(
-        :user_url => "http://userurl.com"
+        :url => "http://userurl.com"
       )
     ])
   end
