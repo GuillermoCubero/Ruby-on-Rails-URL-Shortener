@@ -26,7 +26,7 @@ RSpec.feature 'RSpec Test', :type => :feature do
     fill_in 'Url', with: 'https://www.google.com/'
     click_button 'Create Short'
     expect(page).to have_content('Short was successfully created.')
-    click_link('id-of-link') # revisar esta parte en el futuro.
+    click_link('id-of-link')
     expect(current_url).to eql('https://www.google.com/')
   end
   
