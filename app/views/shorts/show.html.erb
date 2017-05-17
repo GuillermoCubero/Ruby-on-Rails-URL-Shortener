@@ -1,9 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>User url:</strong>
-  <%= @short.url %>
-</p>
+<p><strong>Url: </strong><%= @short.url %></p>
+<p><strong>Shorted Url: </strong><%= link_to request.base_url + '/' + @short.short_url, @short.url, id:'id-of-link' %></p>
+
 
 <%= link_to 'Edit', edit_short_path(@short) %> |
 <%= link_to 'Back', shorts_path %>

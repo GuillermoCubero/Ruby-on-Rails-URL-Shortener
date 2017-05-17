@@ -1,6 +1,10 @@
 class ShortsController < ApplicationController
   before_action :set_short, only: [:show, :edit, :update, :destroy]
 
+  def redirect_id
+    redirect_to Short.find(params[:id].to_i(36)).url
+  end
+
   # GET /shorts
   # GET /shorts.json
   def index
@@ -62,6 +66,7 @@ class ShortsController < ApplicationController
   end
 
   private
+  
     # Use callbacks to share common setup or constraints between actions.
     def set_short
       @short = Short.find(params[:id])

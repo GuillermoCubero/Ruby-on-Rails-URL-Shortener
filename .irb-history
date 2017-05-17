@@ -1,0 +1,64 @@
+36.to_36
+36.to(36)
+36.to_s(36)
+Short.ids
+short = Short.create
+short.id = 12345674890
+short.id.to_s(36)
+short.id.short_url
+short1
+short1 = Short.create(id: 1234567890546)
+short1 = short1.short_url
+short1 = Short.create(id: 1234567890)
+short1.id.short_url
+short1.short_url.to_s(10)
+short1.short_url.id.to_s(10)
+short1.id = 123456
+short1.id = short1.short_url
+short1.id
+e
+Short.create(id: 1234567890, user_url: 'http://algo.com')
+short = Short.create(id: 1234567890, user_url: 'http://algo.com')
+short = Short.create(id: 1234567890, url: 'http://algo.com')
+short1 = Short.create(id: 1234567890, url: 'http://algo.com').short_url
+short.short_url
+Short.id
+short.id
+short1.short_url
+short = Short.create(id: 1234567890, url: 'http://algo.com').short_url
+1.to_s(36)
+Short.create(url: "http://idmaslar.com", id: 123456789)
+Short.create(url: "http://ulpgc.es" id: 124657890)
+Short.create(url: "http://ulpgc.es", id: 124657890)
+Short.create(url:"http://algo.com", id: 1234567890)
+Short.all
+Short.create(url: "http://google.es", new_url "https://short-url-guillermocubero.c9users.io/shorts/3n23g2", id: 13256)
+Short.create(url: "http://google.es", new_url "https://short-url-guillermocubero.c9users.io/shorts/3n23")
+Short.crat
+Short.create
+Short.create(id: 123457, url: "http://ulpgc.es", new_url "https://short-url-guillermocubero.c9users.io/shorts/2654df4")
+Short.create(id: 123457, url: "http://ulpgc.es", new_url")
+Short.create(id: 123457, url: "http://ulpgc.es", new_url: "https://short-url-guillermocubero.c9users.io/shorts/2654df4")
+request.host
+export RAILS_SERVE_STATIC_FILES
+env['RAILS_SERVE_STATIC_FILESENV= "CACA"
+ENV['RAILS_SERVE_STATIC_FILES'].CACA
+caca = "esto es string"
+caca.to_s
+
+ENV['RAILS_SERVE_STATIC_FILES']= 1
+caca = 1
+caquita = 1
+caquita
+caca
+ENV['RAILS_SERVE_STATIC_FILES'] = 2
+ENV['RAILS_SERVE_STATIC_FILES'] = "vv"
+ENV['RAILS_SERVE_STATIC_FILES']
+ENV[''] = a
+ENV['algo'] = "a"
+ENV[''] = "a"
+ENV[] = "a"
+ENV = "a"
+app.root_url(:port => 20)
+app.root_url()
+exit

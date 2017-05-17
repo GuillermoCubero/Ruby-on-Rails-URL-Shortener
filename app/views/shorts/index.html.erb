@@ -13,7 +13,7 @@
   <tbody>
     <% @shorts.each do |short| %>
       <tr>
-        <td><%= short.url %></td>
+        <td><%= short.url %></td>  
         <td><%= link_to 'Show', short %></td>
         <td><%= link_to 'Edit', edit_short_path(short) %></td>
         <td><%= link_to 'Destroy', short, method: :delete, data: { confirm: 'Are you sure?' } %></td>
