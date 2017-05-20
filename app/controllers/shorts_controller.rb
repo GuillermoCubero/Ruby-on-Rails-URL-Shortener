@@ -29,8 +29,6 @@ class ShortsController < ApplicationController
   # POST /shorts.json
   def create
     @short = Short.new(short_params)
-    
-    if 
       respond_to do |format|
         if @short.save
           format.html { redirect_to @short, notice: 'Short was successfully created.' }
@@ -40,7 +38,6 @@ class ShortsController < ApplicationController
           format.json { render json: @short.errors, status: :unprocessable_entity }
         end
       end
-    end
   end
 
   # PATCH/PUT /shorts/1
