@@ -4,7 +4,7 @@ class ShortsController < ApplicationController
   def redirect_id
     redirect_to Short.find(params[:id].to_i(36)).url
   end
-
+  
   # GET /shorts
   # GET /shorts.json
   def index
@@ -29,14 +29,18 @@ class ShortsController < ApplicationController
   # POST /shorts.json
   def create
     @short = Short.new(short_params)
-
-    respond_to do |format|
-      if @short.save
-        format.html { redirect_to @short, notice: 'Short was successfully created.' }
-        format.json { render :show, status: :created, location: @short }
-      else
-        format.html { render :new }
-        format.json { render json: @short.errors, status: :unprocessable_entity }
+    
+    if Short.find_by_url(short_params[:url])
+      redirect_to short_path(Short.find_by_url(short_params[:url]).id)
+    else
+      respond_to do |format|
+        if @short.save
+          format.html { redirect_to @short, notice: 'Short was successfully created.' }
+          format.json { render :show, status: :created, location: @short }
+        else
+          format.html { render :new }
+          format.json { render json: @short.errors, status: :unprocessable_entity }
+        end
       end
     end
   end

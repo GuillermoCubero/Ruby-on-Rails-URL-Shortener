@@ -1,6 +1,13 @@
-<h1>Editing Short</h1>
-
-<%= render 'form', short: @short %>
-
-<%= link_to 'Show', @short %> |
-<%= link_to 'Back', shorts_path %>
+<div class="page-header">
+  <h1>Edit <small>Your URL</small></h1>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h4>Edit your URL info</h4></div>
+    <div class="panel-body">
+        <%= render 'form', short: @short %>
+    </div>
+    <div class="panel-footer">
+        <%= link_to 'Show', @short,  class: "btn btn-info" %> 
+        <%= link_to 'Back', shorts_path, class: "btn btn-default" %>
+    </div>
+</div>

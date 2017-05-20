@@ -1,0 +1,12 @@
+<% if @short.errors.any? %>
+    <div id="error_explanation">
+        <div class="alert alert-danger">
+            <h4><%= pluralize(@short.errors.count, "error") %> prohibited this short from being saved:</h4>
+        </div>
+        <ul>
+        <% @short.errors.full_messages.each do |message| %>
+          <li><h5><%= message %></h5></li>
+        <% end %>
+        </ul>
+    </div>
+<% end %>

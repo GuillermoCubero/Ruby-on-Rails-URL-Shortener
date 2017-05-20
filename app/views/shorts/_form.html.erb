@@ -1,23 +1,12 @@
-<%= form_for(short) do |f| %> 
-  <% if short.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(short.errors.count, "error") %> prohibited this short from being saved:</h2>
-
-      <ul>
-      <% short.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<div class="row">
+  <div class="col-lg-6 ">
+  <%= form_for(short) do |f| %> 
+    <%= render 'shared/error_messages' %>
+    <%= f.label :url, "Introduce an URL to short:" %>
+    <div class="input-group">
+      <%= f.text_field :url, class: "form-control"%>
+      <span class="input-group-btn"><%= f.submit "Create short", class: "btn btn-default" %></span>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :url %>
-    <%= f.text_field :url %>
   </div>
-
-  <div class="actions">
-      <%= f.submit %>
-  </div>
-  
-<% end %>
+</div>
