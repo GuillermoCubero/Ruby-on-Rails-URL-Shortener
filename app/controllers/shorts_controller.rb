@@ -30,9 +30,7 @@ class ShortsController < ApplicationController
   def create
     @short = Short.new(short_params)
     
-    if Short.find_by_url(short_params[:url])
-      redirect_to short_path(Short.find_by_url(short_params[:url]).id)
-    else
+    if 
       respond_to do |format|
         if @short.save
           format.html { redirect_to @short, notice: 'Short was successfully created.' }
