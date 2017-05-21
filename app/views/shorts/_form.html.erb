@@ -1,8 +1,8 @@
 <%= form_for(short) do |f| %> 
  
   <%= f.label :url, "Introduce an URL to short:" %>
-  <div class="input-group">
+  
     <%= f.text_field :url %>
-    <span class="input-group-btn"><%= f.submit "Create short", class: "btn btn-default" %></span>
-  </div>
+    <%= f.submit "Create short", class: "btn btn-default" %>
+
 <% end %>
