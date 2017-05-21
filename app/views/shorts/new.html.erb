@@ -2,7 +2,11 @@
   <h1>New Short <small>Short your url here</small></h1>
 </div>
 
-<%= render 'form', short: @short %>
+<div class="row">
+  <div class="col-lg-6 ">
+    <%= render 'form', short: @short %>
+  </div>
+</div>
 
 <div class="boton_inicio">
     <%= link_to 'Back', shorts_path, class: "btn btn-default" %>
