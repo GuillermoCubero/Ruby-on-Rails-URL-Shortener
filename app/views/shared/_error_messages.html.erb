@@ -1,10 +1,10 @@
-<% if @short.errors.any? %>
+<% if object.errors.any? %>
     <div id="error_explanation">
         <div class="alert alert-danger">
-            <h4><%= pluralize(@short.errors.count, "error") %> prohibited this short from being saved:</h4>
+            <h4>The form contains <%= pluralize(object.errors.count, "error") %>.</h4>
         </div>
         <ul>
-        <% @short.errors.full_messages.each do |message| %>
+        <% object.errors.full_messages.each do |message| %>
           <li><h5><%= message %></h5></li>
         <% end %>
         </ul>
