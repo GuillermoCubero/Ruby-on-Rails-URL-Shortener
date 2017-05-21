@@ -1,6 +1,8 @@
-<div class="alert alert-success" role="alert">
-    <p id="notice"><%= notice %></p>
-</div>
+<% if !flash.empty? %>
+    <div class="alert alert-success" role="alert">
+        <p id="notice"><%= flash[:notice] %></p>
+    </div>
+<% end %>
 
 <div class="page-header">
   <h1>Show <small>Your URL</small></h1>
@@ -10,7 +12,7 @@
     <div class="panel-heading"><h4>See your URL info</h4></div>
     <div class="panel-body">
         <h5><strong>Url: </strong><%= @short.url %></h5>
-        <h5><strong>Shorted Url: </strong><%= link_to request.base_url + '/' + @short.short_url, @short.url, id:'id-of-link' %></h5>
+        <h5><strong>Shorted Url: </strong><%= link_to request.base_url + '/' + @short.short_url, @short.url, id:'id-of-link', :target => "_blank" %></h5>
     </div>
     <div class="panel-footer">
     <%= link_to 'Edit', edit_short_path(@short), class: "btn btn-primary" %> 

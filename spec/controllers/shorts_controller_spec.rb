@@ -24,11 +24,11 @@ RSpec.describe ShortsController, type: :controller do
   # Short. As you add validations to Short, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    {id: 123456789, url: 'http://algo.com'}
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    {id:123456789 , url: ''}
   }
 
   # This should return the minimal set of values that should be in the session
@@ -103,14 +103,14 @@ RSpec.describe ShortsController, type: :controller do
   describe "PUT #update" do
     context "with valid params" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        {id: 123456789, url: 'http://www.algo.com'}
       }
 
       it "updates the requested short" do
         short = Short.create! valid_attributes
         put :update, params: {id: short.to_param, short: new_attributes}, session: valid_session
         short.reload
-        skip("Add assertions for updated state")
+        expect(short).to be_valid
       end
 
       it "assigns the requested short as @short" do
