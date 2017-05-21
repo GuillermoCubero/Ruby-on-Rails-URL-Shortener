@@ -11,20 +11,20 @@ RSpec.feature 'RSpec Test', :type => :feature do
   end
   
   scenario 'Short a blank URL' do
-    fill_in 'Url', with: ''
-    click_button 'Create Short'
+    fill_in 'Introduce an URL to short:', with: ''
+    click_button 'Create short'
     expect(page).to have_content("Url can't be blank")
   end
   
   scenario 'Short an invalid URL' do
-    fill_in 'Url', with: 'http://urldepruebaquefallará'
-    click_button 'Create Short'
+    fill_in 'Introduce an URL to short:', with: 'http://urldepruebaquefallará'
+    click_button 'Create short'
     expect(page).to have_content('Url is invalid')
   end
   
   scenario 'Short a valid URL' do
-    fill_in 'Url', with: 'https://www.google.com/'
-    click_button 'Create Short'
+    fill_in 'Introduce an URL to short:', with: 'https://www.google.com/'
+    click_button 'Create short'
     expect(page).to have_content('Short was successfully created.')
     click_link('id-of-link')
     expect(current_url).to eql('https://www.google.com/')

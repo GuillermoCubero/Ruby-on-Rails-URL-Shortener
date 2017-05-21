@@ -9,6 +9,7 @@ $dark: #000;
 
 body {
   padding-top: 40px;
+  margin: 33px;
 }
 
 section {
@@ -26,6 +27,10 @@ textarea {
   }
 }
 
+a:hover{
+    text-decoration: none;
+}
+
 /* Estilo del header */
 
 #logo {
@@ -35,7 +40,7 @@ textarea {
   color: $dark;
   text-transform: uppercase;
   letter-spacing: -1px;
-  padding-top: 15px;
+  padding-top: 10px;
   font-weight: bold;
   &:hover {
   color:$dark;
