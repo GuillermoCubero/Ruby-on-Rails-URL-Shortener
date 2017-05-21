@@ -709,6 +709,53 @@ Y se ve de la siguiente manera:
 
 ![](http://imgur.com/6SOMvKd.jpg)
 
+### Hacemos correr los test esperando el ciclo rojo
+```
+rspec spec/features/short_url_page_spec.rb
+```
+
+### Modificacmos los test para que pasen con las vistas modificadas
+```
+require 'rails_helper'
+
+RSpec.feature 'RSpec Test', :type => :feature do
+  
+  before do
+    visit '/'
+  end
+  
+  scenario 'Visit the Short Url Page' do
+    expect(page).to have_title('URL shortener')
+  end
+  
+  scenario 'Short a blank URL' do
+    fill_in 'Introduce an URL to short:', with: ''
+    click_button 'Create short'
+    expect(page).to have_content("Url can't be blank")
+  end
+  
+  scenario 'Short an invalid URL' do
+    fill_in 'Introduce an URL to short:', with: 'http://urldepruebaquefallará'
+    click_button 'Create short'
+    expect(page).to have_content('Url is invalid')
+  end
+  
+  scenario 'Short a valid URL' do
+    fill_in 'Introduce an URL to short:', with: 'https://www.google.com/'
+    click_button 'Create short'
+    expect(page).to have_content('Short was successfully created.')
+    click_link('id-of-link')
+    expect(current_url).to eql('https://www.google.com/')
+  end
+  
+end
+```
+
+### Hacemos correr los test esperando el ciclo verde
+```
+rspec spec/features/short_url_page_spec.rb
+```
+
 ### Guardamos los cambios en nuestro repositorio de GitHub de la siguiente manera:
 - git add -A
 - git commit -m "Mensaje del commit"
