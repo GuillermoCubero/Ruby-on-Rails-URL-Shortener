@@ -27,26 +27,26 @@ siguiente:
 A continuación se describirán los pasos a seguir para conseguirlo:
 
 ### En primer lugar antes de empezar cada iteración, es recomendable crear una rama nueva para trabajar en el proyecto
-```
+```ruby
 git checkout -b nueva-rama-para-iteración1
 ```
 Si no tienes configurado tu Git en tu entorno de desarrollo visita [esta página](https://git-scm.com/book/es/v1/Empezando-Configurando-Git-por-primera-vez) 
 para configurarlo.
 
 ### Instalación de Rails 5.0.2
-```
+```ruby
 gem install rails -v 5.0.2
 ```
   
 ### Creación de la aplicación
-```
+```ruby
 rails new short_url -T
 ```
   
 - -T skip test
 
 ### Arrancar el servidor en Cloud9
-```
+```ruby
 rails server -b $IP -p $PORT
 ```
 
@@ -54,26 +54,26 @@ rails server -b $IP -p $PORT
 https://short-url-guillermocubero.c9users.io/
 
 ### Añadimos la gema rspec-rails al Gemfile
-```
+```ruby
 group :development, :test do
   gem 'rspec-rails', '~> 3.5'
 end
 ```
 
 ### Ejecutamos el comando para inicializar spec
-```
+```ruby
 rails generate rspec:install
 ````
 
 ### Añadimos la gema capyvara al Gemfile 
-```
+```ruby
 group :development, :test do
   gem 'capybara'
 end
 ```
 
 ### Creamos la carpeta features en /short_url/spec y creamos un test para la hello page con el siguiente contenido:
-```
+```ruby
 require "rails_helper"
 
 RSpec.feature "RSpec Test", :type => :feature do
@@ -87,33 +87,33 @@ end
 Para saber mas acerca de **RSpec** visita la página de [Relish.](https://relishapp.com/rspec/rspec-rails/v/3-5/docs/model-specs)
 
 ### Hacemos correr los test esperando el ciclo rojo
-```
+```ruby
 rspec spec/features/hello_page_spec.rb
 ```
 
 ### Definimos en el greetings_controller un método para renderizar un Hello World!
-```
+```ruby
 def hello
   render html: "Hello, World!"
 end
 ```
 
 ### Añadimos en el archivo /config/routes.rb
-```
+```ruby
 get 'greetings/hello'
 ```
 
 ### Ejecutamos de nuevo los test esperando el ciclo rojo
-```
+```ruby
 rspec spec/features/hello_page_spec.rb
 ```
 
 ### Ejecutamos un comando Rails para generar un controlador "greetings_controller"
-```
+```ruby
 rails generate scaffold_controller greetings_controller
 ```
 ### Ejecutamos de nuevo los test esperando el ciclo verde
-```
+```ruby
 rspec spec/features/hello_page_spec.rb
 ```
 
@@ -135,12 +135,12 @@ siguiente:
 A continuación se describirán los pasos a seguir para conseguirlo:
 
 ### En primer lugar antes de empezar cada iteración, es recomendable crear una rama nueva para trabajar en el proyecto
-```
+```ruby
 git checkout -b nueva-rama-para-iteración2
 ```
 
 ### Creamos en la carpeta featuresun test para la short page con el siguiente contenido:
-```
+```ruby
 require 'rails_helper'
 
 RSpec.feature 'RSpec Test', :type => :feature do
@@ -180,18 +180,18 @@ Aqui hemos definido los escenarios posibles ante los que se puede encontrar nues
 aplicación en la página para acortar las URL's.
 
 ### Hacemos correr los test esperando el ciclo rojo
-```
+```ruby
 rspec spec/features/short_url_page_spec.rb
 ```
 
 ### Creamos mediante Rails nuestro controlador de la siguiente manera
-```
+```ruby
 rails generate controller Short user_url:string
 ```
 
 ### A continuación para empezar a pasar los test modificamos el archivo de routes.rb
 Añadimos la siguiente línea: **root 'shorts#new'** de la siguiente manera
-```
+```ruby
 Rails.application.routes.draw do
   resources :shorts
   root 'shorts#new'
@@ -203,7 +203,7 @@ end
 Para conseguir pasar el primer test debemos editar la línea **&lt;title&gt;URL shorter&lt;/title&gt;**
 en el archivo aplication.html.erb de esta forma:
 
-```
+```html
 <!DOCTYPE html>
 <html>
   <head>
@@ -221,7 +221,7 @@ en el archivo aplication.html.erb de esta forma:
 ```
 
 ### Hacemos correr los test y comprobamos que el primer test ejecuta correctamente
-```
+```ruby
 rspec spec/features/short_url_page_spec.rb
 ```
 
@@ -232,7 +232,7 @@ rspec spec/features/short_url_page_spec.rb
 
 Para conseguir pasar dichos test modificamos el modelo de nuestra aplicación en **short_url/app/models/short.rb**
 con el siguiente código.
-```
+```ruby
 class Short < ApplicationRecord
     VALID_URL_REGEX = /\A((http|https|ftp|ftps):\/\/)?(([a-z0-9]+\:)?[a-z0-9]+\@)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(([0-9]{1,5})?\/.*)?\z/
     validates :user_url, presence: true, format: { with: VALID_URL_REGEX }
@@ -244,7 +244,7 @@ comprobará si las URL's introducidas cumplen el formato.
 Para entender mejor el formato puedes visitar [Rubular.](http://rubular.com/)
 
 ### Hacemos correr los test esperando el ciclo verde
-```
+```ruby
 rspec spec/features/short_url_page_spec.rb
 ```
 
@@ -255,7 +255,7 @@ Para cumplir con la nueva regla de validación de una URL los test que modificam
 - show.html.erb_spec.rb
 
 ### Creamos en el modelo el siguiente método para generar la url acortada
-```
+```ruby
 class Short < ApplicationRecord
     VALID_URL_REGEX = /https?:\/\/[\S]+\.[\S]+/
     validates :url, presence: true, format: { with: VALID_URL_REGEX }
@@ -269,14 +269,14 @@ end
 ```
 
 ### Creamos en el modelo el siguiente método para redirigir las urls acortadas a las originales
-```  
+```  ruby
   def redirect_id
     redirect_to Short.find(params[:id].to_i(36)).url
   end
 ```
 
 ### Alteramos el archivo routes.rb con el siguiente contenido
-```
+```ruby
 Rails.application.routes.draw do
   resources :shorts
   root 'shorts#new'
@@ -286,7 +286,7 @@ end
 ```
 
 ### Y finalmente alteramos la vista del show.html.erb para ver las URL acortadas y poder visitarlas.
-```
+```html
 <p id="notice"><%= notice %></p>
 
 <p><strong>Url: </strong><%= @short.url %></p>
@@ -300,7 +300,7 @@ Hemos añadido la **id:'id-of-link'** para poder hacer click y visitarla desde e
 ### Creamos test sobre el modelo 
 Comprueban que la URL se acorta de manera correcta.
 
-```
+```ruby
 require 'rails_helper'
 
 RSpec.describe Short, type: :model do
@@ -311,7 +311,6 @@ RSpec.describe Short, type: :model do
     
     subject { short }
      
-    it { should respond_to(:id) }
     it { should respond_to(:url) }
     it { should respond_to(:short_url) }
     
@@ -319,23 +318,23 @@ RSpec.describe Short, type: :model do
     
     context 'Short an URL' do
         
-        it 'has to translate the id to b36' do
-            expect(short.short_url).to eq short.id.to_s(36)
+        it 'has to translate the id to radix36' do
+            expect(short_url).to eq id.to_s(36)
         end
         
-        it 'has to percive when url is not present' do
+        it 'has to detect when url is null' do
             short.url = nil
             expect(short).not_to be_valid
         end
         
-        it 'has to percibe when url is valid' do
+        it 'has to detect when url is valid' do
             valids.each do |valid_url|
                 short.url = valid_url
                 expect(short).to be_valid
             end
         end
         
-        it 'has to percibe when url is invalid' do
+        it 'has to detect when url is invalid' do
             invalids.each do |invalid_url|
                 short.url = invalid_url
                 expect(short).not_to be_valid
@@ -365,28 +364,28 @@ Se trabajará la parte comúnmente llamada front-end de la aplicación.
 A continuación se describirán los pasos a seguir para conseguirlo:
 
 ### En primer lugar antes de empezar cada iteración, es recomendable crear una rama nueva para trabajar en el proyecto
-```
+```ruby
 git checkout -b nueva-rama-para-iteración3
 ```
 
 ### Comenzaremos añadiendo la herramienta a nuestro Gemfile
-```
+```ruby
 gem 'bootstrap-sass', '3.3.6'
 ```
 Ejecutamos el comando **bundle install** para que se cargue de nuestro *Gemfile*.
 
 ### Creamos nuestra página de estilo donde colocaremos el CSS que se requiera
-```
+```ruby
 touch app/assets/stylesheets/custom.scss
 ```
 Importamos dentro Bootstrap de la siguiente manera:
-```
+```ruby
 @import "bootstrap-sprockets";
 @import "bootstrap";
 ```
 
 ### Agregamos en primer lugar un estilo general a la página
-```
+```css
 /* Variables */
 
 $dark: #000;
@@ -427,7 +426,7 @@ más programática. Para saber mas visita [Sass.](http://sass-lang.com/)
 Creamos dentro de **short_url/app/views/layouts** un archivo llamado _header.html.erb, en él crearemos
 la cabecera de nuestra aplicación que renderizaremos posteriormente. Su contenido será el siguiente:
 
-```
+```html
 <header class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <%= link_to "URL Shortener", root_path, id: "logo" %>
@@ -451,7 +450,7 @@ En el hemos añadido varias clases de Bootstrap básicas. Para saber más visita
 Creamos dentro de **short_url/app/views/layouts** un archivo llamado _footer.html.erb, en él crearemos
 el pie de página de nuestra aplicación que renderizaremos posteriormente. Su contenido será el siguiente:
 
-```
+```html
 <footer class="footer">
   <nav>
     <ul>
@@ -464,7 +463,7 @@ el pie de página de nuestra aplicación que renderizaremos posteriormente. Su c
 
 ### Ahora editaremos nuestro archivo aplication.html.erb de la siguiente manera
 
-```
+```html
 <!DOCTYPE html>
 <html>
   <head>
@@ -484,7 +483,7 @@ En él hemos renderizado la cabecera y el pie de página por encima y por debajo
 
 ### Una vez editado vamos a añadir algunas reglas del CSS para que esté todo más ordenado
 
-```
+```css
 .
 .
 .
@@ -534,7 +533,7 @@ footer {
 
 ### Hecho esto nos dispondremos a cambiar el estilo de la página principal y veremos como queda
 Editamos el archivo *new.html.erb* dentro de **short_url/app/views/shorts** de la siguiente manera:
-```
+```html
 <div class="page-header">
   <h1>New Short <small>Short your url here</small></h1>
 </div>
@@ -551,7 +550,7 @@ Editamos el archivo *new.html.erb* dentro de **short_url/app/views/shorts** de l
 ```
 
 También editaremos el aspecto de nuestro formulario en **short_url/app/views/shorts/_form.html.erb** así:
-```
+```html
 <%= form_for(short) do |f| %> 
   <%= render 'shared/error_messages', object: @short %>
   <%= f.label :url, "Introduce an URL to short:" %>
@@ -565,7 +564,7 @@ También editaremos el aspecto de nuestro formulario en **short_url/app/views/sh
 Y finalmente creamos el archivo **_error_messages.html.erb** dentro de la carpeta que crearemos en **short_url/app/views/** llamada *shared*, 
 **(short_url/app/views/shared/_error_messages.html.erb)**:
 
-```
+```html
 <% if object.errors.any? %>
     <div id="error_explanation">
         <div class="alert alert-danger">
@@ -585,7 +584,7 @@ De esta manera nuestra página principal lucirá tal que así:
 ![](http://imgur.com/gFYmM0i.jpg)
 
 ### Añadimos algunas reglas más al CSS para finalizar la página principal
-```
+```css
 .
 .
 .
@@ -619,7 +618,7 @@ Y el estilo de la página principal al mostrar un error será el siguiente:
 ![](http://imgur.com/iAe94ka.jpg)
 
 ### Continuamos con el estilo de la página index.html.erb
-```
+```html
 <div class="page-header">
   <h1>Shorts <small>See the shortened urls here</small></h1>
 </div>
@@ -663,7 +662,7 @@ Y se ve de la siguiente manera:
 
 ### Continuaremos con la página de show.html.erb
 
-```
+```html
 <div class="alert alert-success" role="alert">
     <p id="notice"><%= notice %></p>
 </div>
@@ -690,7 +689,7 @@ Y se ve de la siguiente manera:
 ![](http://imgur.com/2gNWGcd.jpg)
 
 ### Por último este será el aspecto de la página de edit.html.erb
-```
+```html
 <div class="page-header">
   <h1>Edit <small>Your URL</small></h1>
 </div>
@@ -710,12 +709,12 @@ Y se ve de la siguiente manera:
 ![](http://imgur.com/6SOMvKd.jpg)
 
 ### Hacemos correr los test esperando el ciclo rojo
-```
+```ruby
 rspec spec/features/short_url_page_spec.rb
 ```
 
-### Modificacmos los test para que pasen con las vistas modificadas
-```
+### Modificamos los test para que pasen con las vistas modificadas
+```ruby
 require 'rails_helper'
 
 RSpec.feature 'RSpec Test', :type => :feature do
@@ -752,7 +751,7 @@ end
 ```
 
 ### Hacemos correr los test esperando el ciclo verde
-```
+```ruby
 rspec spec/features/short_url_page_spec.rb
 ```
 
