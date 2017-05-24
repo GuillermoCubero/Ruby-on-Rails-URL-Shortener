@@ -380,7 +380,7 @@ Ejecutamos el comando **bundle install** para que se cargue de nuestro *Gemfile*
 
 ### Creamos nuestra página de estilo donde colocaremos el CSS que se requiera
 ```ruby
-c
+  touch /app/assets/stylesheet custom.css
 ```
 Importamos dentro Bootstrap de la siguiente manera:
 ```ruby
@@ -788,7 +788,7 @@ Y tendrá el siguiente sontenido:
   WillPaginate.per_page = 10
 ```
 
-### Finalmente añadimos a la vista la paginaciónavigating
+### Finalmente añadimos a la vista la paginación
 ```html
 <div class="page-header">
   <h1>Shorts <small>See the shortened URL here</small></h1>
@@ -887,7 +887,7 @@ rails db:reset
 rails db:migrate
 ```
 
-### Una vexx que hemos añadido la paginación se deben realizar los test correspondientes
+### Una vez que hemos añadido la paginación se deben realizar los test correspondientes
 Primero generamos el archivo donde se realizarán los test de la siguiente manera:
 
 ```ruby
