@@ -352,6 +352,42 @@ end
 Para encontrar ejemplos de tests de modelo profesionales visita [BetterSpecs](http://www.betterspecs.org/#expect) o
 el **GitHub** de [Michael Hartl.](https://github.com/mhartl/sample_app/blob/master/spec/models/user_spec.rb)
 
+### Por útimo nos dispondremos a desplegar nuestra aplicación en Heroku
+
+Para ello lo primero que debemos hacer es cambios en nuestro *Gemfile* para que nuestra base de datos (sqlite) y
+la de Heroku (postgreSql) no entren en conflicto. Para ello movemos la gema de sqlite y ceramos un grupo para 
+desarrollo.
+```ruby
+group :production do
+  gem 'pg', '0.18.4'
+end
+
+group :development, :test do
+  gem 'sqlite3', '1.3.13'
+end
+```
+A continuación ejecutamos el comando
+```ruby 
+bundle install --without production
+```
+Metemos nuestros credenciales de Heroku y añadimos nuestro SSH
+```ruby
+heroku login
+heroku keys:add
+```
+
+### Creamos nuestra aplicación y la subimos
+```ruby
+heroku create
+git push heroku master
+heroku run rails db:migrate
+```
+
+Finalmente si queremos renombrar nuestra aplicación ejecutamos:
+```ruby
+heroku rename
+```
+
 ### Guardamos los cambios en nuestro repositorio de GitHub de la siguiente manera:
 - git add -A
 - git commit -m "Mensaje del commit"
