@@ -711,6 +711,19 @@ Y se ve de la siguiente manera:
     </div>
 </div>
 ```
+
+En este apratado hemos renderizado un **edit_form** con el siguiente contenido:
+```html
+<%= form_for(short) do |f| %> 
+  <%= render 'shared/error_messages', object: @short %>
+  <%= f.label :url, "Your URL to edit:" %>
+  <div class="input-group">
+    <%= f.text_field :url, class: "form-control"%>
+    <span class="input-group-btn"><%= f.submit "Edit short", class: "btn btn-default" %></span>
+  </div>
+<% end %>
+```
+
 Y se ve de la siguiente manera:
 
 ![](http://imgur.com/6SOMvKd.jpg)
