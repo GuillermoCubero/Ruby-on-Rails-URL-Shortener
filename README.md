@@ -139,7 +139,7 @@ A continuación se describirán los pasos a seguir para conseguirlo:
 git checkout -b nueva-rama-para-iteración2
 ```
 
-### Creamos en la carpeta featuresun test para la short page con el siguiente contenido:
+### Creamos en la carpeta features un test para la short page con el siguiente contenido:
 ```ruby
 require 'rails_helper'
 
@@ -352,10 +352,16 @@ end
 Para encontrar ejemplos de tests de modelo profesionales visita [BetterSpecs](http://www.betterspecs.org/#expect) o
 el **GitHub** de [Michael Hartl.](https://github.com/mhartl/sample_app/blob/master/spec/models/user_spec.rb)
 
+### Guardamos los cambios en nuestro repositorio de GitHub de la siguiente manera:
+- git add -A
+- git commit -m "Mensaje del commit"
+- git checkout master
+- git merge nueva-rama-para-iteración2
+
 ### Por útimo nos dispondremos a desplegar nuestra aplicación en Heroku
 
 Para ello lo primero que debemos hacer es cambios en nuestro *Gemfile* para que nuestra base de datos (sqlite) y
-la de Heroku (postgreSql) no entren en conflicto. Para ello movemos la gema de sqlite y ceramos un grupo para 
+la de Heroku (postgreSql) no entren en conflicto. Para ello movemos la gema de sqlite y creamos un grupo para 
 desarrollo.
 ```ruby
 group :production do
@@ -385,14 +391,8 @@ heroku run rails db:migrate
 
 Finalmente si queremos renombrar nuestra aplicación ejecutamos:
 ```ruby
-heroku rename
+heroku rename nuevo-nombre
 ```
-
-### Guardamos los cambios en nuestro repositorio de GitHub de la siguiente manera:
-- git add -A
-- git commit -m "Mensaje del commit"
-- git checkout master
-- git merge nueva-rama-para-iteración2
 
 ***
 
@@ -459,7 +459,7 @@ a:hover{
 
 Con estas pocas reglas nuestra página se verá mucho mas ordenada. Durante este proyecto 
 usaremos Sass, una herramienta que nos permite tratar el css de una aplicación de manera
-más programática. Para saber mas visita [Sass.](http://sass-lang.com/)
+más programática. Para saber más visita [Sass.](http://sass-lang.com/)
 
 ### En primer lugar voy a crear un header para mi aplicación
 
@@ -513,14 +513,15 @@ el pie de página de nuestra aplicación que renderizaremos posteriormente. Su c
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-    <section>
-      <%= render 'layouts/header' %>
-      <%= yield %>
-      <%= render 'layouts/footer' %>
-    </section>
+    <div class="container">
+      <section>
+        <%= render 'layouts/header' %>
+        <%= yield %>
+      </section>
+    </div>
+    <%= render 'layouts/footer' %>
   </body>
 </html>
-
 ```
 En él hemos renderizado la cabecera y el pie de página por encima y por debajo del contenido.
 
@@ -663,38 +664,40 @@ Y el estilo de la página principal al mostrar un error será el siguiente:
 ### Continuamos con el estilo de la página index.html.erb
 ```html
 <div class="page-header">
-  <h1>Shorts <small>See the shortened urls here</small></h1>
+  <h1>Shorts <small>See the shortened URL here</small></h1>
 </div>
 
 <div class="panel panel-default">
   <!-- Default panel contents -->
   <div class="panel-heading"><h4>Manage shortened URLs</h4></div>
   <div class="panel-body">
-    <table class="table">
-      
-    <thead>
-      <tr>
-        <h4>Users url</h4>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
-    
-    <tbody>
-      <% @shorts.each do |short| %>
+  
+    <table class="table table-striped">
+      <thead>
         <tr>
-          <td><h5><%= short.url %></h5></td>
+          <h4>Users url</h4>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @shorts.each do |short| %>
+          <tr>
+            <td class='col-md-9'><h5><%= short.url %></h5></td>
             <td><%= link_to 'Show', short, class: "btn btn-info" %></td>
             <td><%= link_to 'Edit', edit_short_path(short), class: "btn btn-primary" %></td>
             <td><%= link_to 'Destroy', short, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
-          </div>
-        </tr>
-      <% end %>
-    </tbody>
-    
-  </table>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <div class="text-center">
+      <%= will_paginate %>
+    </div>
+  
   </div>
+  
   <div class="panel-footer">
-    <%= link_to 'New Short', new_short_path, class: "btn btn-success" %>
+      <%= link_to 'New Short', new_short_path, class: "btn btn-success" %>
   </div>
 </div>
 ```
@@ -827,14 +830,14 @@ Y ejecutamos un **bundle install --without production**.
   end
 ```
 De esta forma indicamos que la página de index se pagine.
-Ahora creamos el archivo **will_paginate.rb** y en **short_url/config/initializers/** apra que 
-tenga hasta 10 resultados como máximo por cada página.
+Ahora creamos el archivo **will_paginate.rb** y en **short_url/config/initializers/** para que 
+tenga hasta 9 resultados como máximo por cada página.
 ```ruby
   touch /config/initializers/ will_paginate.rb
 ```
 Y tendrá el siguiente sontenido:
 ```ruby
-  WillPaginate.per_page = 10
+  WillPaginate.per_page = 9
 ```
 
 ### Finalmente añadimos a la vista la paginación
@@ -933,6 +936,7 @@ Short.create!([{
 ### Para observar los cambios se sugiere ejecutar:
 ```ruby
 rails db:reset
+rails rake db:seed
 rails db:migrate
 ```
 
@@ -1011,3 +1015,7 @@ rspec spec/features/url_paginations_spec.rb
 - git commit -m "Mensaje del commit"
 - git checkout master
 - git merge nueva-rama-para-iteración3
+
+### Y subimos las modificaciones a Heroku
+- git push heroku master
+- heroku run rails db:migrate
