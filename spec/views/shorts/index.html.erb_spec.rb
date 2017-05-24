@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "shorts/index", type: :view do
   before(:each) do
+    allow(view).to receive(:will_paginate)
     assign(:shorts, [
       Short.create!(
         :url => "http://userurl.com"

@@ -3,41 +3,44 @@ require 'rails_helper'
 RSpec.describe Short, type: :model do
     
     let(:short) { Short.create(id: 1234567890, url: 'http://www.google.es') }
-    let(:valids) { %w[https://www.google.es http://google.es https://google.es www.google.es google.es] }
-    let(:invalids) { %w[http://www.google. https://.google.es http://google. https://google http://.] }
-    
+
     subject { short }
      
     it { should respond_to(:url) }
     it { should respond_to(:short_url) }
     
+    
     it { should be_valid }
     
-    context 'Short an URL' do
+    context 'Short_url checking' do
         
         it 'has to translate the id to radix36' do
-            expect(short_url).to eq id.to_s(36)
+            expect(short.short_url).to eq short.id.to_s(36)
         end
         
         it 'has to detect when url is null' do
             short.url = nil
             expect(short).not_to be_valid
         end
-        
-        it 'has to detect when url is valid' do
-            valids.each do |valid_url|
+
+    end
+    
+    context 'Short a valid URL' do
+        %w[https://www.google.es http://google https://google.es www.google.es google].each do |valid_url|
+            it 'has to short a valid url' do
                 short.url = valid_url
                 expect(short).to be_valid
             end
         end
-        
-        it 'has to detect when url is invalid' do
-            invalids.each do |invalid_url|
+    end
+    
+    context 'Short an invalid URL' do
+        %w[http://www.google. https://.google.es http://google. https://google http://.].each do |invalid_url|
+            it 'has to reject an invalid url' do
                 short.url = invalid_url
                 expect(short).not_to be_valid
             end
         end
-
     end
         
 end

@@ -306,41 +306,44 @@ require 'rails_helper'
 RSpec.describe Short, type: :model do
     
     let(:short) { Short.create(id: 1234567890, url: 'http://www.google.es') }
-    let(:valids) { %w[https://www.google.es http://google.es https://google.es www.google.es google.es] }
-    let(:invalids) { %w[http://www.google. https://.google.es http://google. https://google http://.] }
-    
+
     subject { short }
      
     it { should respond_to(:url) }
     it { should respond_to(:short_url) }
     
+    
     it { should be_valid }
     
-    context 'Short an URL' do
+    context 'Short_url checking' do
         
         it 'has to translate the id to radix36' do
-            expect(short_url).to eq id.to_s(36)
+            expect(short.short_url).to eq short.id.to_s(36)
         end
         
         it 'has to detect when url is null' do
             short.url = nil
             expect(short).not_to be_valid
         end
-        
-        it 'has to detect when url is valid' do
-            valids.each do |valid_url|
+
+    end
+    
+    context 'Short a valid URL' do
+        %w[https://www.google.es http://google https://google.es www.google.es google].each do |valid_url|
+            it 'has to short a valid url' do
                 short.url = valid_url
                 expect(short).to be_valid
             end
         end
-        
-        it 'has to detect when url is invalid' do
-            invalids.each do |invalid_url|
+    end
+    
+    context 'Short an invalid URL' do
+        %w[http://www.google. https://.google.es http://google. https://google http://.].each do |invalid_url|
+            it 'has to reject an invalid url' do
                 short.url = invalid_url
                 expect(short).not_to be_valid
             end
         end
-
     end
         
 end
@@ -359,7 +362,8 @@ el **GitHub** de [Michael Hartl.](https://github.com/mhartl/sample_app/blob/mast
 
 ## Iteración 3 <a name="id3"></a>
 En la **Iteración 3** se trabajará en añadir un aspecto sencillo y limpio a nuestra aplicación con la herramienta Bootstrap.
-Se trabajará la parte comúnmente llamada front-end de la aplicación.
+Se trabajará la parte comúnmente llamada front-end de la aplicación. También se paginará la página **index.html.erb** para 
+poder tener una vista ordenada de las URLs acortadas.
 
 A continuación se describirán los pasos a seguir para conseguirlo:
 
@@ -376,7 +380,7 @@ Ejecutamos el comando **bundle install** para que se cargue de nuestro *Gemfile*
 
 ### Creamos nuestra página de estilo donde colocaremos el CSS que se requiera
 ```ruby
-touch app/assets/stylesheets/custom.scss
+c
 ```
 Importamos dentro Bootstrap de la siguiente manera:
 ```ruby
@@ -398,7 +402,7 @@ body {
 }
 
 section {
-  overflow: auto;
+  overflow: hidden;
 }
 
 textarea {
@@ -473,11 +477,14 @@ el pie de página de nuestra aplicación que renderizaremos posteriormente. Su c
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-    <%= render 'layouts/header' %>
-    <%= yield %>
-    <%= render 'layouts/footer' %>
+    <section>
+      <%= render 'layouts/header' %>
+      <%= yield %>
+      <%= render 'layouts/footer' %>
+    </section>
   </body>
 </html>
+
 ```
 En él hemos renderizado la cabecera y el pie de página por encima y por debajo del contenido.
 
@@ -753,6 +760,201 @@ end
 ### Hacemos correr los test esperando el ciclo verde
 ```ruby
 rspec spec/features/short_url_page_spec.rb
+```
+
+### Empezamos con la paginación
+
+Añadimos a nuestro *Gemfile* las gemas necesarias.
+```ruby
+gem 'will_paginate', '3.1.0'
+gem 'bootstrap-will_paginate', '0.0.10'
+```
+Y ejecutamos un **bundle install --without production**.
+
+### Alteramos en el controlador shorts_controller.rb
+```ruby
+  def index
+    @shorts = Short.paginate(page: params[:page])
+  end
+```
+De esta forma indicamos que la página de index se pagine.
+Ahora creamos el archivo **will_paginate.rb** y en **short_url/config/initializers/** apra que 
+tenga hasta 10 resultados como máximo por cada página.
+```ruby
+  touch /config/initializers/ will_paginate.rb
+```
+Y tendrá el siguiente sontenido:
+```ruby
+  WillPaginate.per_page = 10
+```
+
+### Finalmente añadimos a la vista la paginaciónavigating
+```html
+<div class="page-header">
+  <h1>Shorts <small>See the shortened URL here</small></h1>
+</div>
+
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading"><h4>Manage shortened URLs</h4></div>
+  <div class="panel-body">
+  
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <h4>Users url</h4>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @shorts.each do |short| %>
+          <tr>
+            <td><h5><%= short.url %></h5></td>
+              <td><%= link_to 'Show', short, class: "btn btn-info" %></td>
+              <td><%= link_to 'Edit', edit_short_path(short), class: "btn btn-primary" %></td>
+              <td><%= link_to 'Destroy', short, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+            </div>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <div class="text-center">
+      <%= will_paginate %>
+    </div>
+  
+  </div>
+  
+  <div class="panel-footer">
+      <%= link_to 'New Short', new_short_path, class: "btn btn-success" %>
+  </div>
+</div>
+```
+
+### Ahora nos dispondremos a añadir algunas entradas a la base de datos para rellenar nuestra página
+
+En el archivo **short_url/db/seed.db** introducimos el contenido:
+
+```ruby
+Short.create!([{
+    id:67890,
+    url:'https://www.google.es/'
+},
+{
+    id:85644, 
+    url:'http://www.marca.com/'
+},
+{
+    id:90588, 
+    url:'https://www.xataka.com/'
+},
+{
+    id:00044, 
+    url:'http://www.laprovincia.es/multimedia/fotos/deportes/2017-05-21-92847-real-madrid-celebra-liga-malaga.html'
+},
+{
+    id:02244, 
+    url:'https://www.facebook.com/'
+},
+{
+    id:15983, 
+    url:'https://www.youtube.com/results?search_query=ruby+on+rails'
+},
+{
+    id:98765, 
+    url:'www.ulpgc.es'
+},
+{
+    id:32178, 
+    url:'https://aulaga.dis.ulpgc.es/'
+},
+{
+    id:32185, 
+    url:'https://github.com/'
+},
+{
+    id:137820, 
+    url:'https://es.aliexpress.com/'
+},
+{
+    id:712345, 
+    url:'http://zapatos.com/'
+}])
+```
+
+### Para observar los cambios se sugiere ejecutar:
+```ruby
+rails db:reset
+rails db:migrate
+```
+
+### Una vexx que hemos añadido la paginación se deben realizar los test correspondientes
+Primero generamos el archivo donde se realizarán los test de la siguiente manera:
+
+```ruby
+rails generate rspec:feature url_paginations
+```
+
+El contenido será el siguiente:
+
+```ruby
+require 'rails_helper'
+
+RSpec.feature "UrlPaginations", type: :feature do
+    
+    before do
+        WillPaginate.per_page = 1
+        2.times do |n|
+          url  = "http://www.url#{n}.com"
+          Short.create!(id: n, url: url)
+        end
+        visit '/shorts'
+    end
+  
+    scenario 'Pagination is rendered' do
+        expect(page).to have_selector('div .pagination')
+    end
+    
+    describe 'Pagination lists all urls' do
+        it 'list first page' do
+            expect(page).to have_content('http://www.url0.com')
+            expect(page).to have_selector('tr', count: 2)
+        end
+        
+        it 'list last page' do
+            click_link 'Next'
+            expect(page).to have_content('http://www.url1.com')
+            expect(page).to have_selector('tr', count: 2)
+        end
+    end
+    
+    describe 'Pagination works propertly' do
+        it 'pagination is in the current page' do
+            expect(page).to have_selector('li', text:1)
+            click_link 'Next'
+            expect(page).to have_selector('li', text:2)
+        end
+        
+        it 'cant paginate next-page from the last page' do
+            click_link 'Next'
+            expect(page).to have_selector('li.next.next_page.disabled')
+        end
+        
+        it 'cant paginate prev-page from the first page' do
+            click_link 'Previous'
+            expect(page).to have_selector('li.prev.previous_page.disabled')
+        end
+        
+        it 'pagination-next and pagination-prev is rendered' do
+            expect(page).to have_selector('li', text:"Next")
+            expect(page).to have_selector('li', text:"Previous")
+        end
+    end
+end
+```
+
+### Hacemos correr los test esperando el ciclo verde
+```ruby
+rspec spec/features/url_paginations_spec.rb
 ```
 
 ### Guardamos los cambios en nuestro repositorio de GitHub de la siguiente manera:

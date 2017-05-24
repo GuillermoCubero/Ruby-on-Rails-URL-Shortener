@@ -8,7 +8,7 @@ class ShortsController < ApplicationController
   # GET /shorts
   # GET /shorts.json
   def index
-    @shorts = Short.all
+    @shorts = Short.paginate(page: params[:page])
   end
 
   # GET /shorts/1
