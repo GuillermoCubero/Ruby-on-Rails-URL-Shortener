@@ -234,7 +234,7 @@ Para conseguir pasar dichos test modificamos el modelo de nuestra aplicación en
 con el siguiente código.
 ```ruby
 class Short < ApplicationRecord
-    VALID_URL_REGEX = /\A((http|https|ftp|ftps):\/\/)?(([a-z0-9]+\:)?[a-z0-9]+\@)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(([0-9]{1,5})?\/.*)?\z/
+    VALID_URL_REGEX = /\A(http|https|ftp|ftps):\/\/(([a-z0-9]+\:)?[a-z0-9]+\@)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(([0-9]{1,5})?\/.*)?\z/
     validates :user_url, presence: true, format: { with: VALID_URL_REGEX }
 end
 ```
@@ -257,14 +257,12 @@ Para cumplir con la nueva regla de validación de una URL los test que modificam
 ### Creamos en el modelo el siguiente método para generar la url acortada
 ```ruby
 class Short < ApplicationRecord
-    VALID_URL_REGEX = /https?:\/\/[\S]+\.[\S]+/
+    VALID_URL_REGEX = /\A(http|https|ftp|ftps):\/\/(([a-z0-9]+\:)?[a-z0-9]+\@)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(([0-9]{1,5})?\/.*)?\z/
     validates :url, presence: true, format: { with: VALID_URL_REGEX }
-
     
     def short_url
         self.id.to_s(36)
     end
-    
 end
 ```
 
@@ -329,7 +327,7 @@ RSpec.describe Short, type: :model do
     end
     
     context 'Short a valid URL' do
-        %w[https://www.google.es http://google https://google.es www.google.es google].each do |valid_url|
+        %w[https://www.google.es http://google.es https://google.es www.google.es google.es].each do |valid_url|
             it 'has to short a valid url' do
                 short.url = valid_url
                 expect(short).to be_valid
@@ -888,47 +886,47 @@ En el archivo **short_url/db/seed.db** introducimos el contenido:
 
 ```ruby
 Short.create!([{
-    id:67890,
+    id:1,
     url:'https://www.google.es/'
 },
 {
-    id:85644, 
+    id:2, 
     url:'http://www.marca.com/'
 },
 {
-    id:90588, 
+    id:3, 
     url:'https://www.xataka.com/'
 },
 {
-    id:00044, 
+    id:4, 
     url:'http://www.laprovincia.es/multimedia/fotos/deportes/2017-05-21-92847-real-madrid-celebra-liga-malaga.html'
 },
 {
-    id:02244, 
+    id:5, 
     url:'https://www.facebook.com/'
 },
 {
-    id:15983, 
+    id:6, 
     url:'https://www.youtube.com/results?search_query=ruby+on+rails'
 },
 {
-    id:98765, 
+    id:7, 
     url:'www.ulpgc.es'
 },
 {
-    id:32178, 
+    id:8, 
     url:'https://aulaga.dis.ulpgc.es/'
 },
 {
-    id:32185, 
+    id:9, 
     url:'https://github.com/'
 },
 {
-    id:137820, 
+    id:10, 
     url:'https://es.aliexpress.com/'
 },
 {
-    id:712345, 
+    id:11, 
     url:'http://zapatos.com/'
 }])
 ```

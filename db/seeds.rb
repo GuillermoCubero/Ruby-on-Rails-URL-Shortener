@@ -1,44 +1,33 @@
 Short.create!([{
-    id:67890,
     url:'https://www.google.es/'
 },
 {
-    id:85644, 
     url:'http://www.marca.com/'
 },
 {
-    id:90588, 
     url:'https://www.xataka.com/'
 },
 {
-    id:00044, 
     url:'http://www.laprovincia.es/multimedia/fotos/deportes/2017-05-21-92847-real-madrid-celebra-liga-malaga.html'
 },
 {
-    id:02244, 
     url:'https://www.facebook.com/'
 },
 {
-    id:15983, 
     url:'https://www.youtube.com/results?search_query=ruby+on+rails'
 },
 {
-    id:98765, 
     url:'www.ulpgc.es'
 },
 {
-    id:32178, 
     url:'https://aulaga.dis.ulpgc.es/'
 },
 {
-    id:32185, 
     url:'https://github.com/'
 },
 {
-    id:137820, 
     url:'https://es.aliexpress.com/'
 },
 {
-    id:712345, 
     url:'http://zapatos.com/'
 }])

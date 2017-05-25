@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "UrlPaginations", type: :feature do
+RSpec.feature 'UrlPaginations', type: :feature do
     
     before do
         WillPaginate.per_page = 1
@@ -10,7 +10,7 @@ RSpec.feature "UrlPaginations", type: :feature do
         end
         visit '/shorts'
     end
-  
+    
     scenario 'Pagination is rendered' do
         expect(page).to have_selector('div .pagination')
     end

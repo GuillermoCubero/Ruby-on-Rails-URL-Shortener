@@ -29,19 +29,15 @@ class ShortsController < ApplicationController
   # POST /shorts.json
   def create
     @short = Short.new(short_params)
-      #if Short.find_by_url(short_params[:url])
-      #    redirect_to short_url(Short.find_by_url(short_params[:url]).id)
-      #else
-        respond_to do |format|
-            if @short.save
-              format.html { redirect_to @short, notice: 'Short was successfully created.' }
-              format.json { render :show, status: :created, location: @short }
-            else
-              format.html { render :new }
-              format.json { render json: @short.errors, status: :unprocessable_entity }
-            end
-          end
-      #end
+    respond_to do |format|
+      if @short.save
+        format.html { redirect_to @short, notice: 'Short was successfully created.' }
+        format.json { render :show, status: :created, location: @short }
+      else
+        format.html { render :new }
+        format.json { render json: @short.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   # PATCH/PUT /shorts/1
