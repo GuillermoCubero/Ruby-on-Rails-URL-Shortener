@@ -11,7 +11,7 @@
       <tbody>
         <% @shorts.each do |short| %>
           <tr>
-            <td class='col-md-9'><h5><%= short.url %></h5></td>
+            <td class='col-md-9'><h5><%= link_url(short.url) %></h5></td>
             <td><%= link_to 'Show', short, class: "btn btn-info" %></td>
             <td><%= link_to 'Edit', edit_short_path(short), class: "btn btn-primary" %></td>
             <td><%= link_to 'Destroy', short, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>

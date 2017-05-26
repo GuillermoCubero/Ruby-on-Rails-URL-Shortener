@@ -1,14 +1,13 @@
 require 'rails_helper'
 
-# Specs in this file have access to a helper object that includes
-# the ShortsHelper. For example:
-#
-# describe ShortsHelper do
-#   describe "string concat" do
-#     it "concats two strings with spaces" do
-#       expect(helper.concat_strings("this","that")).to eq("this that")
-#     end
-#   end
-# end
 RSpec.describe ShortsHelper, type: :helper do
+    
+    describe "link_to_url" do
+        it "links to an url using its name" do
+          short = Short.create(url: 'www.google.es')
+          expect(helper.link_url(short.url)).to include('www.google.es')
+          expect(helper.link_url(short.url)).to have_selector(:css, 'a[href="http://www.google.es"]')
+        end
+    end
+    
 end

@@ -13,7 +13,7 @@ RSpec.feature 'RSpec Test', :type => :feature do
   scenario 'Short a blank URL' do
     fill_in 'Introduce an URL to short:', with: ''
     click_button 'Create short'
-    expect(page).to have_content("Url can't be blank")
+    expect(page).to have_content("Url is invalid")
   end
   
   scenario 'Short an invalid URL' do
