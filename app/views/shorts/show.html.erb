@@ -1,3 +1,4 @@
+<% provide(:title, "| Shorts Info") %>
 <% if !flash.empty? %>
     <div class="alert alert-success" role="alert">
         <p id="notice"><%= flash[:notice] %></p>
@@ -16,6 +17,6 @@
     </div>
     <div class="panel-footer">
     <%= link_to 'Edit', edit_short_path(@short), class: "btn btn-primary" %> 
-    <%= link_to 'Back', shorts_path, class: "btn btn-default" %>
+    <%= link_to 'Back', :back, class: "btn btn-default" %>
     </div>
 </div>

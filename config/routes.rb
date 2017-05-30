@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
+  root 'static_pages#home'
+
   resources :shorts
-  root 'shorts#new'
   get 'greetings/hello'
   get ":id", to: "shorts#redirect_id"
   

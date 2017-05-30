@@ -3,11 +3,11 @@ require 'rails_helper'
 RSpec.feature 'RSpec Test', :type => :feature do
   
   before do
-    visit '/'
+    visit '/shorts/new'
   end
   
   scenario 'Visit the Short Url Page' do
-    expect(page).to have_title('URL shortener')
+    expect(page).to have_title('URL Shortener')
   end
   
   scenario 'Short a blank URL' do
