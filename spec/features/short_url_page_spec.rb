@@ -7,7 +7,7 @@ RSpec.feature 'RSpec Test', :type => :feature do
   end
   
   scenario 'Visit the Short Url Page' do
-    expect(page).to have_title('URL Shortener')
+    expect(page).to have_title('URL Shortener | Create a Short')
   end
   
   scenario 'Short a blank URL' do

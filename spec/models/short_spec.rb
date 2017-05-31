@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe Short, type: :model do
     
     let(:short) { Short.create(id: 1234567890, url: 'http://www.google.es') }
+    let(:nonprotocolurl) { Short.create(id: 1, url: 'www.google.es') }
 
     subject { short }
      
@@ -31,6 +32,10 @@ RSpec.describe Short, type: :model do
                 short.url = valid_url
                 expect(short).to be_valid
             end
+        end
+        
+        it 'has to add protocol if necesary' do
+            expect(Short.find(nonprotocolurl.id).url).to eq('http://www.google.es')
         end
     end
     
