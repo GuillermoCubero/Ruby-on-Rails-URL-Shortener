@@ -1,6 +1,6 @@
-<%= form_for(short) do |f| %> 
-  <%= render 'shared/error_messages', object: @short %>
-  <%= f.label :url, "Introduce an URL to short:" %>
+<%= form_for(@short) do |f| %> 
+  <%= render 'shared/error_messages', object: f.object %>
+  <h4>Introduce an URL to short:</h4>
   <div class="input-group">
     <%= f.text_field :url, class: "form-control", placeholder:"http://your-url.com" %>
     <span class="input-group-btn"><%= f.submit "Create short", class: "btn btn-default" %></span>

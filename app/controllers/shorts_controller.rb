@@ -31,8 +31,8 @@ class ShortsController < ApplicationController
     @short = Short.new(short_params)
     respond_to do |format|
       if @short.save
-        format.html { redirect_to @short, notice: 'Short was successfully created.' }
-        format.json { render :show, status: :created, location: @short }
+        format.html { redirect_to root_path, notice: 'Short was successfully created.' }
+        format.json { render :new, status: :created, location: @short }
       else
         format.html { render :new }
         format.json { render json: @short.errors, status: :unprocessable_entity }

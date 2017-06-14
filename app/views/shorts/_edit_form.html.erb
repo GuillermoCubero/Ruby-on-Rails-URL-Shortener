@@ -1,5 +1,5 @@
 <%= form_for(short) do |f| %> 
-  <%= render 'shared/error_messages', object: @short %>
+  <%= render 'shared/error_messages', object: f.object %>
   <%= f.label :url, "Your URL to edit:" %>
   <div class="input-group">
     <%= f.text_field :url, class: "form-control"%>

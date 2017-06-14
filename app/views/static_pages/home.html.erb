@@ -1,49 +1,45 @@
 <% provide(:title, "| Home") %>
+
 <div class="container">
+  
   <div class="row">
     <div class="col-md-12">
       <div class="page-header center">
         <h1>URL SHORTENER <small> Shorten your links easily</small></h1>
       </div>
-      <div class="panel-heading text-center">
-        <h3>This is the landing page of an URL Shortener prototype realized as final project for
-            the Degree of Computer Engineering of the  <a href="http://www.ulpgc.es/", target=blank>
-            University of Las Palmas de Gran Canaria.
-        </h3>
-        <%= link_to image_tag("logo.png", alt: "ULPGC logo", id: 'img'),'http://www.eii.ulpgc.es/', target: 'blank'%> 
-      </div>
+    </div>
+  </div>
+  
+  <div class="panel-heading text-center">
+    <h3>This is the landing page of an URL Shortener prototype realized as final project for
+        the Degree of Computer Engineering of the  <a href="http://www.ulpgc.es/", target=blank>
+        University of Las Palmas de Gran Canaria.
+    </h3>
+    <%= link_to image_tag("logo.png", alt: "ULPGC logo", id: 'img'),'http://www.eii.ulpgc.es/', target: 'blank'%> 
+  </div>
 
-      <div class="row">
-        <div class="col-md-6">
-          <div class="panel">
-            <div class="panel-heading text-center">
-              <h2>For users</h2>
-            </div>
-            <ul class="list-group list-group-flush text-center">
-              <li class="list-group-item"><strong>Short your urls in an easy way</strong></li>
-              <li class="list-group-item"><strong>Visit the original pages as fast as possible</strong></li>
-            </ul>
-            <div class="panel-footer">
-              <%= link_to "Start shorting now!", new_short_path, class: "btn btn-block btn-lg btn-primary" %>
-            </div>
-          </div>
-        </div>
-        
-        <div class="col-md-6">
-          <div class="panel">
-            <div class="panel-heading text-center">
-              <h2>For clients</h2>
-            </div>
-            <ul class="list-group list-group-flush text-center">
-              <li class="list-group-item"><strong>Add your ads to be visited</strong></li>
-              <li class="list-group-item"><strong>Check the impact of your ads</strong></li>
-            </ul>
-            <div class="panel-footer">
-              <%= link_to "Sign in now!", '', class: "btn btn-block btn-lg btn-primary" %>
-            </div>
-          </div>
+  <% if !flash.empty? %>
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1 center">
+        <div class="alert alert-success" role="alert">
+          <p id="notice"><%= flash[:notice] %></p>
         </div>
       </div>
     </div>
-  </div>
+  <% end %>
+
+  <div class="row">  
+    <div class="col-md-10 col-md-offset-1 center">
+      <%= render 'shorts/form' %>
+    </div>
+  </div>    
+  
+  <% if flash.notice == 'Short was successfully created.' %>
+    <div class="row" id="margen">
+      <div class="col-md-10 col-md-offset-1 center">
+        <%= render 'shared/show' %>
+      </div>
+    </div>
+  <% end %>
+
 </div>
