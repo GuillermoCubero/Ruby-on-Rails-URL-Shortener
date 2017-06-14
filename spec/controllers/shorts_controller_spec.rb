@@ -81,9 +81,9 @@ RSpec.describe ShortsController, type: :controller do
         expect(assigns(:short)).to be_persisted
       end
 
-      it "redirects to the created short" do
+      it "redirects to the home page" do
         post :create, params: {short: valid_attributes}, session: valid_session
-        expect(response).to redirect_to(Short.last)
+        expect(response).to redirect_to(root_path)
       end
     end
 

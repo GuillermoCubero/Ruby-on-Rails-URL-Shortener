@@ -10,8 +10,8 @@ RSpec.feature "HomePage", type: :feature do
         expect(page).to have_title('URL Shortener | Home')    
     end
     
-    scenario 'render the call to action' do
-        expect(page).to have_link('Start shorting now!')
+    scenario 'render new form' do
+        expect(page).to have_button('Create short')
     end
     
 end
