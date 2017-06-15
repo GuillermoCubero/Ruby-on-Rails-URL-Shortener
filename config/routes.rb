@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
+  get 'password_resets/new'
+
   devise_for :users
   root 'static_pages#home'
-
+  
   resources :shorts
   get 'greetings/hello'
   get ":id", to: "shorts#redirect_id"

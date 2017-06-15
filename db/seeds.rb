@@ -31,3 +31,10 @@ Short.create!([{
 {
     url:'http://zapatos.com/'
 }])
+
+User.create!([{
+    email:'guille22ce@gmail.com',
+    password: 'admin123',
+    password_confirmation: 'admin123',
+    admin: true
+}])

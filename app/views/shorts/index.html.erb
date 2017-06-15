@@ -1,32 +1,37 @@
-<% provide(:title, "| See the Shorts") %>
-<div class="page-header">
-  <h1>Shorts <small>See the shortened URL here</small></h1>
-</div>
-
-<div class="panel panel-default">
-  <!-- Default panel contents -->
-  <div class="panel-heading"><h4>Manage shortened URLs</h4></div>
-  <div class="panel-body">
+<% if current_user.try(:admin?) %>
+  <% provide(:title, "| See the Shorts") %>
+  <div class="page-header">
+    <h1>Shorts <small>See the shortened URL here</small></h1>
+  </div>
   
-    <table class="table table-striped">
-      <tbody>
-        <% @shorts.each do |short| %>
-          <tr>
-            <td class='col-md-9'><h5><%= link_url(short.url) %></h5></td>
-            <td><%= link_to 'Show', short, class: "btn btn-info" %></td>
-            <td><%= link_to 'Edit', edit_short_path(short), class: "btn btn-primary" %></td>
-            <td><%= link_to 'Destroy', short, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-    <div class="text-center">
-      <%= will_paginate %>
+  <div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading"><h4>Manage shortened URLs</h4></div>
+    <div class="panel-body">
+    
+      <table class="table table-striped">
+        <tbody>
+          <% @shorts.each do |short| %>
+            <tr>
+              <td class='col-md-9'><h5><%= link_url(short.url) %></h5></td>
+              <td><%= link_to 'Show', short, class: "btn btn-info" %></td>
+              <td><%= link_to 'Edit', edit_short_path(short), class: "btn btn-primary" %></td>
+              <td><%= link_to 'Destroy', short, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <div class="text-center">
+        <%= will_paginate %>
+      </div>
+    
     </div>
-  
+    
+    <div class="panel-footer">
+        <%= link_to 'New Short', new_short_path, class: "btn btn-success" %>
+    </div>
   </div>
+<% else %>
+  <%controller.redirect_to root_path %> 
+<% end %>
   
-  <div class="panel-footer">
-      <%= link_to 'New Short', new_short_path, class: "btn btn-success" %>
-  </div>
-</div>
