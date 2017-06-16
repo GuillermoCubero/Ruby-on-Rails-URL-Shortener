@@ -18,12 +18,12 @@
           <li id='usuario'><h5>User: <%= current_user.email%></h5></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              Options <b class="caret"></b>
+              Admin Tools <b class="caret"></b>
             </a>
             <ul class="dropdown-menu">
               <% if current_user.admin? %>
-              <li><%= link_to "URL List", shorts_path %></li>
-              <li><%= link_to "Users List", user_index_path %></li>
+              <li><%= link_to "Manage URL's", shorts_path %></li>
+              <li><%= link_to "Manage Users", user_index_path %></li>
               <% end %>
             </ul>
           </li>
