@@ -37,4 +37,57 @@ User.create!([{
     password: 'admin123',
     password_confirmation: 'admin123',
     admin: true
+},
+{
+    email:'admin@admin.com',
+    password: 'admin123',
+    password_confirmation: 'admin123',
+    admin: true
+},
+{
+    email:'alguien@gmail.com',
+    password: 'alguien',
+    password_confirmation: 'alguien',
+    admin: false
+},
+{
+    email:'alguien2@gmail.com',
+    password: 'alguien2',
+    password_confirmation: 'alguien2',
+    admin: false
+},
+{
+    email:'alguien3@gmail.com',
+    password: 'alguien3',
+    password_confirmation: 'alguien3',
+    admin: false
+},
+{
+    email:'alguien4@gmail.com',
+    password: 'alguien4',
+    password_confirmation: 'alguien4',
+    admin: false
+},
+{
+    email:'alguien5@gmail.com',
+    password: 'alguien5',
+    password_confirmation: 'alguien5',
+    admin: false
+},
+{
+    email:'alguien6@gmail.com',
+    password: 'alguien6',
+    password_confirmation: 'alguien6',
+    admin: false
+},
+{
+    email:'alguien7@gmail.com',
+    password: 'alguien7',
+    password_confirmation: 'alguien7',
+    admin: false
+},{
+    email:'alguien8@gmail.com',
+    password: 'alguien8',
+    password_confirmation: 'alguien8',
+    admin: false
 }])

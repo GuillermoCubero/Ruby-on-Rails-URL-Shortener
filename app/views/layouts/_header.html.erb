@@ -21,7 +21,10 @@
               Options <b class="caret"></b>
             </a>
             <ul class="dropdown-menu">
+              <% if current_user.admin? %>
               <li><%= link_to "URL List", shorts_path %></li>
+              <li><%= link_to "Users List", user_index_path %></li>
+              <% end %>
             </ul>
           </li>
           <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>

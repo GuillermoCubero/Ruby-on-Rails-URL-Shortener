@@ -115,6 +115,7 @@ footer {
   color: $dark;
 }
 
+/* Estilo de la paginación */
 .pagination {
   margin: 0;
 }
@@ -136,7 +137,7 @@ footer {
 }
 
 label{
- ºfont-family: inherit;
+  font-family: inherit;
   font-weight: 500;
   line-height: 1.1;
   color: inherit;
@@ -168,6 +169,14 @@ label{
   margin-left: 0;
 }
 
+/* Estilo del botón de Sign up */
+
 #signup {
   margin-top: 20px;
+}
+
+/* Estilo de los botones de show user */
+
+#espacio {
+  margin-right: 5px;
 }

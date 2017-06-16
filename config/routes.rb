@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get 'password_resets/new'
 
   devise_for :users
+  resources :user, only: [:index, :destroy, :show, :update]
   root 'static_pages#home'
   
   resources :shorts

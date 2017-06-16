@@ -1,0 +1,35 @@
+<% provide(:title, "| Users Info") %>
+
+<% if !flash.empty? %>
+    <div class="alert alert-success" role="alert">
+        <p id="notice"><%= flash[:notice] %></p>
+    </div>
+<% end %>
+
+<div class="page-header">
+  <h1>Show <small>Your Users Inofrmation</small></h1>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading"><h4>See your Users information</h4></div>
+    <div class="panel-body">
+        <h5><strong>Admin status: </strong><%= user(params[:id]).admin %></h5>
+        <h5><strong>Email: </strong><%= user(params[:id]).email %></h5>
+        <h5><strong>Number of times user logged in: </strong><%= user(params[:id]).sign_in_count %></h5>
+        <h5><strong>Account create date: </strong><%= user(params[:id]).created_at %></h5>
+        <h5><strong>Account last sign in date: </strong><%= user(params[:id]).last_sign_in_at %></h5>
+        <h5><strong>Account last updated date: </strong><%= user(params[:id]).updated_at %></h5>
+        <h5><strong>Last known ip of the account: </strong><%= user(params[:id]).last_sign_in_ip %></h5>
+    </div>
+    <div class="panel-footer">
+        <table>
+        <tbody>
+            <tr>
+              <td><%= render 'form' %></td>
+              <td><%= link_to 'Destroy', user(params[:id]), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger", id: "espacio" %></td>
+              <td><%= link_to 'Back', :back, class: "btn btn-default" %></td>
+            </tr>
+        </tbody>
+      </table>
+    </div>
+</div>
