@@ -27,7 +27,7 @@ RSpec.describe Short, type: :model do
     end
     
     context 'Short a valid URL' do
-        %w[https://www.google.es http://google.es https://google.es www.google.es google.es].each do |valid_url|
+        %w[https://www.google.es http://google.es https://google.es www.google.es google.es www.google.es/GOOGLE].each do |valid_url|
             it 'has to short a valid url' do
                 short.url = valid_url
                 expect(short).to be_valid
@@ -40,7 +40,7 @@ RSpec.describe Short, type: :model do
     end
     
     context 'Short an invalid URL' do
-        %w[http://www.google. https://.google.es http://google. https://google http://.].each do |invalid_url|
+        %w[http://www.google. https://.google.es http://google. https://google http://. www.GOOGLE.es].each do |invalid_url|
             it 'has to reject an invalid url' do
                 short.url = invalid_url
                 expect(short).not_to be_valid

@@ -1,4 +1,6 @@
 require 'rails_helper'
+include TestHelper::Features
+
 
 RSpec.feature 'UrlPaginations', type: :feature do
     
@@ -8,6 +10,8 @@ RSpec.feature 'UrlPaginations', type: :feature do
           url  = "http://www.url#{n}.com"
           Short.create!(id: n, url: url)
         end
+        User.create(email:'admin@admin.com', password:'admin123', password_confirmation: 'admin123', admin: true)
+        login_user("admin@admin.com", "admin123")
         visit '/shorts'
     end
     

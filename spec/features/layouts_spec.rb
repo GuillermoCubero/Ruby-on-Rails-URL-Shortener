@@ -8,7 +8,7 @@ RSpec.feature "Layouts", type: :feature do
     
     context 'has to render the footer' do 
         it 'has the login link' do
-            expect(page).to have_link("Log in")
+            expect(page).to have_link("Login")
         end
     end
     
