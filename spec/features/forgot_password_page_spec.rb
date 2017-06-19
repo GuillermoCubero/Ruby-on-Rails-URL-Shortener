@@ -28,6 +28,7 @@ RSpec.feature "ForgotPassword Page", type: :feature do
       fill_in 'Email', with: 'registeredemail@email.com'
       click_button 'Send me a new password'
       expect(current_path).to eql('/users/sign_in')
+      expect(page).to have_content("You will receive an email with instructions on how to reset your password in a few minutes.")
     end
     
 end

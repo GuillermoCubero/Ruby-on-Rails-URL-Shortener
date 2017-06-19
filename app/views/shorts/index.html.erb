@@ -33,6 +33,6 @@
   </div>
   
 <% else %>
-  <%controller.redirect_to root_path %> 
+  <% controller.redirect_to root_path, notice: 'Need to be administrator for this.' %> 
 <% end %>
   

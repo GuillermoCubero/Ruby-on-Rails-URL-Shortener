@@ -18,15 +18,7 @@
     <%= link_to image_tag("logo.png", alt: "ULPGC logo", id: 'img', class: 'img-responsive'),'http://www.eii.ulpgc.es/', target: 'blank' %> 
   </div>
 
-  <% if !flash.empty? %>
-    <div class="row">
-      <div class="col-md-10 col-md-offset-1 center">
-        <div class="alert alert-success" role="alert">
-          <p id="notice"><%= flash[:notice] %></p>
-        </div>
-      </div>
-    </div>
-  <% end %>
+  <%= render 'shared/show_flash' %>
 
   <div class="row">  
     <div class="col-md-10 col-md-offset-1 center">

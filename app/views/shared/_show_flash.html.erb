@@ -1,0 +1,9 @@
+<% if !flash.empty? %>
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1 center">
+      <div class="alert alert-success" role="alert">
+        <p id="notice"><%= flash[:notice] %></p>
+      </div>
+    </div>
+  </div>
+<% end %>
