@@ -1,6 +1,6 @@
 class UserController < ApplicationController
     def index
-        @users = User.paginate(page: params[:page])
+        @users = User.search(params[:term]).paginate(page: params[:page]).order("last_sign_in_at DESC")
     end
     
     def show
@@ -30,6 +30,6 @@ class UserController < ApplicationController
   
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:admin)
+      params.require(:user).permit(:admin, :term)
     end
 end

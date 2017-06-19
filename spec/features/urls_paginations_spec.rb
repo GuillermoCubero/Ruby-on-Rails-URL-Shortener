@@ -2,7 +2,7 @@ require 'rails_helper'
 include TestHelper::Features
 
 
-RSpec.feature 'UrlPaginations', type: :feature do
+RSpec.feature 'UrlsPaginations', type: :feature do
     
     before do
         WillPaginate.per_page = 1

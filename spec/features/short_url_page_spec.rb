@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature 'RSpec Test', :type => :feature do
+RSpec.feature 'Short URL Page', :type => :feature do
   
   before do
     visit '/shorts/new'

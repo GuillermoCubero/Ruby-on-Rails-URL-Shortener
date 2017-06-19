@@ -10,7 +10,7 @@
     <%= render 'shared/error_messages', object: f.object %>
     <%= f.label :email %>
     <div class="input-group">
-      <%= f.email_field :email, autofocus: true, class: "form-control", placeholder:"youremail@youremail.com" %>
+      <%= f.email_field :email, autofocus: true, class: "form-control", placeholder:"youremail@youdomain.com" %>
       <span class="input-group-btn"><%= f.submit "Send me a new password", class: "btn btn-primary" %></span>
     </div>
   <% end %>

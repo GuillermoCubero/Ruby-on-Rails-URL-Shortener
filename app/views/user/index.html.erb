@@ -21,11 +21,13 @@
     
       <table class="table table-striped">
         <tbody>
-        <% @users.each do |user| %>
+          <tr class='col-md-9'><%= render 'search_form' %></tr>
+          <% @users.each do |user| %>
           <tr>
-            <td class='col-md-9'><h5><strong>Email:</strong> <%= user.email %></h5></td>
-            <td><%= link_to 'Show', user, class: "btn btn-info" %></td>
-            <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+            <td class='col-md-3'><h5><strong>Admin:</strong> <%= user.admin %></h5></td>
+            <td class='col-md-7'><h5><strong>Email:</strong> <%= user.email %></h5></td>
+            <td><%= link_to 'Show', user, class: "btn btn-info pull-right" %></td>
+            <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger pull-right" %></td>
           </tr>
         <% end %>
         </tbody>
