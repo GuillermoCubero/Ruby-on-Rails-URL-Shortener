@@ -1,0 +1,30 @@
+require 'rails_helper'
+
+RSpec.feature 'Users Page', :type => :feature do
+  
+  let(:user) { User.create(email:'registeredemail@email.com', password:'admin123', password_confirmation: 'admin123', 
+        admin: true, reset_password_token: Devise.token_generator.generate(User, :reset_password_token), reset_password_sent_at: Time.now.utc ) }
+  
+  before do
+    login_user(user.email, "admin123")
+    visit '/user'
+  end
+  
+  scenario 'Visit the Short Url Page' do
+    expect(page).to have_title('URL Shortener | See the Users')
+  end
+  
+  scenario 'List all users' do
+    expect(page).to have_content('Email: registeredemail@email.com')
+    expect(page).to have_content('Admin: true')
+    expect(page).to have_selector('tr', count: 2)
+  end
+  
+  scenario 'Change user privileges' do
+    click_link 'Show'
+    expect(page).to have_content('Admin status: true')
+    click_button 'Change privileges'
+    expect(User.find(1).admin).to be false
+  end
+  
+end

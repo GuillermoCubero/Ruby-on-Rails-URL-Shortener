@@ -21,3 +21,4 @@
 .byebug_history
 
 config/database.yml
+config/local_env.yml

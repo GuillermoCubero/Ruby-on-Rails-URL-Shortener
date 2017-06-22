@@ -39,8 +39,6 @@ gem 'bootstrap-will_paginate', '0.0.10'
 
 gem 'devise', '4.3.0'
 
-gem 'show_me_the_cookies'
-
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
@@ -49,6 +47,8 @@ group :development, :test do
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3', '1.3.13'
   gem 'rails-controller-testing' #intalada para que pase el test "ShortsController GET #new assigns a new short as @short"
+  gem 'show_me_the_cookies'
+  gem 'capybara-email'
 end
 
 group :development do

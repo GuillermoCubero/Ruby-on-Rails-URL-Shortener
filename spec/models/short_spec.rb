@@ -9,8 +9,6 @@ RSpec.describe Short, type: :model do
      
     it { should respond_to(:url) }
     it { should respond_to(:short_url) }
-    
-    
     it { should be_valid }
     
     context 'Short_url checking' do
