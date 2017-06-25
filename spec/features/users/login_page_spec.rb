@@ -2,9 +2,11 @@ require 'rails_helper'
 
 RSpec.feature 'Login Page', :type => :feature do
   
+  let(:user) { User.create(email:'registeredemail@email.com', password:'password', password_confirmation: 'password') }
+  
   before do
-    User.create(email:'admin@admin.com', password:'admin123', password_confirmation: 'admin123', admin: true)
-    visit '/users/sign_in'
+    visit root_path
+    click_link 'Login'
   end
   
   scenario 'Visit the Login Page' do
@@ -12,22 +14,22 @@ RSpec.feature 'Login Page', :type => :feature do
   end
   
   scenario 'Access with valid parameters' do
-    fill_in 'Email', with: 'admin@admin.com'
-    fill_in 'Password', with: 'admin123'
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: 'password'
     click_button 'Log in'
     expect(page).to have_content("Signed in successfully.")
   end
   
   scenario 'Access with invalid parameters' do
-    fill_in 'Email', with: 'admin@admin.com'
-    fill_in 'Password', with: 'admin1234'
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: 'password2'
     click_button 'Log in'
-    expect(current_path).to eql('/users/sign_in')
+    expect(page).to have_content("Invalid Email or password.")
   end
   
   scenario 'Login with remember me' do
-    fill_in 'Email', with: 'admin@admin.com'
-    fill_in 'Password', with: 'admin123'
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: 'password'
     check 'Remember me'
     click_button 'Log in'
     expect(page).to have_link("Logout")

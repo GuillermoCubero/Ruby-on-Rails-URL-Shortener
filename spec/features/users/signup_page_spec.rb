@@ -2,9 +2,12 @@ require 'rails_helper'
 
 RSpec.feature "Signup Page", type: :feature do
   
+  let(:user) { User.create(email:'registeredemail@email.com', password:'password', 
+      password_confirmation: 'password') }
+  
   before do
-    User.create(email:'registeredemail@email.com', password:'admin123', password_confirmation: 'admin123', admin: true)
-    visit '/users/sign_up'
+    visit root_path
+    click_link "Sign up"
   end
   
   scenario 'Visit the Signup Page' do
@@ -30,6 +33,7 @@ RSpec.feature "Signup Page", type: :feature do
     end
       
     scenario 'Introduce a registered email' do
+      user
       fill_in 'Email', with: 'registeredemail@email.com'
       fill_in 'Password', with: '123456'
       fill_in 'Password confirmation', with: '123456'

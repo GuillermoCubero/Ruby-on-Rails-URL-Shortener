@@ -1,0 +1,12 @@
+<% if !flash.empty? %>
+  <%= devise_error_messages! %>
+  <div class="row">
+      <div class="col-md-10 col-md-offset-1 center">
+        <div class="alert alert-success" role="alert">
+          <% flash.each do |key, value| %>
+             <div id="notice <%= key %>"><%= value %></div>
+          <% end %>
+        </div>
+      </div>
+  </div>
+<% end %>

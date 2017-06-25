@@ -2,11 +2,12 @@ require 'rails_helper'
 
 RSpec.feature "ResetPassword Page", type: :feature do
     
-    let(:user) { User.create(email:'registeredemail@email.com', password:'admin123', password_confirmation: 'admin123', 
-        admin: true) }
+    let(:user) { User.create(email:'registeredemail@email.com', password:'admin123', password_confirmation: 'admin123') }
     
     before do
-      visit  new_user_password_path
+      visit  root_path
+      click_link 'Login'
+      click_link 'Request a new one'
       fill_in "Email", with: user.email
       click_button "Send me a new password"
       open_email(user.email)

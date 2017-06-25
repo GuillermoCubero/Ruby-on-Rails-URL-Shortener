@@ -1,9 +1,10 @@
 require 'rails_helper'
+include TestHelper::Features
 
 RSpec.feature 'Users Page', :type => :feature do
   
   let(:user) { User.create(email:'registeredemail@email.com', password:'admin123', password_confirmation: 'admin123', 
-        admin: true, reset_password_token: Devise.token_generator.generate(User, :reset_password_token), reset_password_sent_at: Time.now.utc ) }
+        admin: true) }
   
   before do
     login_user(user.email, "admin123")
