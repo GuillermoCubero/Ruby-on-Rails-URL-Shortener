@@ -2,41 +2,43 @@
 #### En este README está documentada toda la información necesaria para usar el prototipo de acortador de URLs.
 #### This README documents all the information necessary to use the URL shortener prototype.
 ***
-#### Esto es un prototipo de acrtador de URLs realizado como proyecto final para el Grado de Ingeniería Informática de la [Universidad de Las Palmas de Gran Canaria](http://www.ulpgc.es/)
+#### Esto es un prototipo de acrtador de URLs realizado como proyecto final para el Grado de Ingeniería Informática de la [Universidad de Las Palmas de Gran Canaria.](http://www.ulpgc.es/) 
+#### Puedes visitarla el despligue en Heroku aquí: http://acortador-urls.herokuapp.com/
 #### This is an URL Shortener prototype realized as final project for the Degree of Computer Engineering of the [University of Las Palmas de Gran Canaria.](http://www.ulpgc.es/)
+#### You can visit the Heroku deployment here: http://acortador-urls.herokuapp.com/
 
 ![](http://imgur.com/VGGenya.jpg)
 
 ***
 
-### Inicialización del git
+### Inicialización del git / Git Initialization
 ```
 git init
 ```
 
-### Descarga de la aplicación desde GitHub
+### Descarga de la aplicación desde GitHub / Download the aplication from GitHub
 ```
 git pull https://github.com/GuillermoCubero/short-url
 ```
 
-### Instalación de Rails 5.0.2
+### Instalación de Rails 5.0.2 / Rails 5.0.2 instalation
 ```ruby
 gem install rails -v 5.0.2
 ```
 
-### Instalar las gemas necesarias
+### Instalar las gemas necesarias / Intall all the necesary gems
 ```ruby
 bundle install
 ```
   
-### Creación de la aplicación
+### Creación de la aplicación / Creation of the application
 ```ruby
 rails new short_url -T
 ```
   
 - -T skip test
 
-### Creación de la base de datos
+### Creación de la base de datos / Creation of the database
 
 Añadir a la ruta */config* el archivo **database.yml** con el siguiente contenido:
 
@@ -65,23 +67,23 @@ production:
 timeout: 5000
 ```
 
-### Migrar y llenar la base de datos
+### Migrar y llenar la base de datos / Seed and migrate the database
 
 ```ruby
 rails db:migrate
 rails db:seed
 ```
 
-### Instalar aplicaciones necesarias para el funcionamiento de la app
+### Instalar aplicaciones necesarias para el funcionamiento de nuestro proyecto / Install all the necesary aplications to run our project
 ```ruby
 sudo apt-get update
 sudo apt-get install imagemagick --fix-missing
 ```
 
-### Arrancar el servidor en Cloud9
+### Arrancar el servidor en Cloud9 / Run Cloud9 server
 ```ruby
 rails server -b $IP -p $PORT
 ```
 
-### Para visitar la aplicación
+### Para visitar la aplicación / To visit the aplicaction
 https://nombredeaplicacio-nombredeusuario.c9users.io/
