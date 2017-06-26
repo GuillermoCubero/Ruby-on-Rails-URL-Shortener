@@ -1,0 +1,42 @@
+<% if current_user.try(:admin?) %>
+  <% provide(:title, "| See the Advertisements") %>
+  
+  <div class="page-header">
+    <h1>Advertisements <small>See all the advertisements</small></h1>
+  </div>
+  
+  <%= render 'shared/show_flash' %>
+  
+  <div class="panel panel-default">
+    <div class="panel-heading"><h4>Manage all the advertisements</h4></div>
+    <div class="panel-body">
+    
+      <table class="table table-striped">
+        <tbody>
+          <tr class='col-md-9'><%= render 'search_form' %></tr>
+          <% @advertisements.each do |advert| %>
+          <tr>
+            <td class='col-md-3'><h5><strong>Owner:</strong> <%= user(advert.user_id).email %></h5></td>
+            <td class='col-md-7'><h5><strong>Title:</strong> <%= advert.title %></h5></td>
+            <td><%= link_to 'Show', advert, class: "btn btn-info" %></td>
+            <td><%= link_to 'Edit', edit_advertisement_path(advert), class: "btn btn-primary" %></td>
+            <td><%= link_to 'Destroy', advert, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+      
+      <div class="text-center">
+        <%= will_paginate(@advertisements) %>
+      </div>
+      
+    </div>
+    <div class="panel-footer">
+      <%= link_to 'New Advertisement', new_advertisement_path, class: "btn btn-success" %>
+      <%= link_to 'Back', :back, class: "btn btn-default" %>
+    </div>
+  </div>
+  
+<% else %>
+  <% controller.redirect_to root_path, notice: 'Need to be administrator for this.' %> 
+<% end %>

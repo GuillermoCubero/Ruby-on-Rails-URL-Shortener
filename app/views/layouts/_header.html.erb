@@ -21,7 +21,10 @@
               Tools <b class="caret"></b>
             </a>
             <ul class="dropdown-menu">
-              <% if current_user.admin? %>
+              <% if !current_user.admin? %>
+              <li><%= link_to "Manage Advertisements", static_pages_manageadvertisements_path %></li>
+              <% elsif current_user.admin? %>
+              <li><%= link_to "Manage Advertisements", advertisements_path %></li>
               <li><%= link_to "Manage URLs", shorts_path %></li>
               <li><%= link_to "Manage Users", user_index_path %></li>
               <% end %>

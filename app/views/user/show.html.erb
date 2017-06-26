@@ -11,6 +11,7 @@
         <div class="panel-heading"><h4>See your Users information</h4></div>
         <div class="panel-body">
             <h5><strong>Admin status: </strong><%= user(params[:id]).admin %></h5>
+            <h5><strong>Advertisements: </strong><%= user(params[:id]).advertisements.count %></h5>
             <h5><strong>Email: </strong><%= user(params[:id]).email %></h5>
             <h5><strong>Number of times user logged in: </strong><%= user(params[:id]).sign_in_count %></h5>
             <h5><strong>Account create date: </strong><%= user(params[:id]).created_at %></h5>
