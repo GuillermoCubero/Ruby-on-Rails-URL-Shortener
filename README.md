@@ -26,7 +26,7 @@ git pull https://github.com/GuillermoCubero/short-url
 gem install rails -v 5.0.2
 ```
 
-### Instalar las gemas necesarias / Intall all the necesary gems
+### Instalar las gemas necesarias / Install all the necesary gems
 ```ruby
 bundle install
 ```
@@ -85,5 +85,5 @@ sudo apt-get install imagemagick --fix-missing
 rails server -b $IP -p $PORT
 ```
 
-### Para visitar la aplicación / To visit the aplicaction
+### Para visitar la aplicación / To visit the aplication
 https://nombredeaplicacio-nombredeusuario.c9users.io/
