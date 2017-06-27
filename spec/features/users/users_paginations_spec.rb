@@ -5,8 +5,8 @@ include TestHelper::Features
 RSpec.feature 'UsersPaginations', type: :feature do
     
     before do
-        WillPaginate.per_page = 1
-        2.times do |n|
+        WillPaginate.per_page = 4
+        5.times do |n|
           email = "email#{n}@email.com"
           password = "password"
           password_confirmation = "password"
@@ -22,8 +22,9 @@ RSpec.feature 'UsersPaginations', type: :feature do
     
     describe 'Pagination lists all urls' do
         it 'list first page' do
+            expect(page).to have_content('email4@email.com')
             expect(page).to have_content('email1@email.com')
-            expect(page).to have_selector('tr', count: 2)
+            expect(page).to have_selector('tr', count: 5)
         end
         
         it 'list last page' do

@@ -13,9 +13,10 @@ RSpec.feature "Layouts", type: :feature do
             expect(page).to have_link("Login")
         end
         
-        it 'has the Tools link' do
+        it 'has the Manage links' do
             login_user(user.email, "admin123")
-            expect(page).to have_link("Tools")
+            expect(page).to have_link("Manage URLs")
+            expect(page).to have_link("Manage Users")
         end
     end
     

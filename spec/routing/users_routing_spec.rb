@@ -11,14 +11,6 @@ RSpec.describe UserController, type: :routing do
       expect(:get => "/user/1").to route_to("user#show", :id => "1")
     end
 
-    it "routes to #update via PUT" do
-      expect(:put => "/user/1").to route_to("user#update", :id => "1")
-    end
-
-    it "routes to #update via PATCH" do
-      expect(:patch => "/user/1").to route_to("user#update", :id => "1")
-    end
-
     it "routes to #destroy" do
       expect(:delete => "/user/1").to route_to("user#destroy", :id => "1")
     end

@@ -15,17 +15,6 @@ class UserController < ApplicationController
         end
     end
     
-    def update
-        @user = User.find(params[:id])
-        if @user.admin?
-            @user.update_attribute(:admin, false)
-            redirect_to @user, notice: 'Admin privileges has been revoked.'
-        else
-            @user.update_attribute(:admin, true)
-            redirect_to @user, notice: 'Admin privileges has been granted.'
-        end
-    end
-    
     private
   
     def user_params

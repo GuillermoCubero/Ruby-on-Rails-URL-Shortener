@@ -1,4 +1,4 @@
-<%= form_for(short) do |f| %> 
+<%= form_for([:admin, short]) do |f| %> 
   <%= render 'shared/error_messages', object: f.object %>
   <%= f.label :url, "Your URL to edit:" %>
   <div class="input-group">

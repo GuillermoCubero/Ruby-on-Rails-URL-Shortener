@@ -36,13 +36,6 @@ RSpec.describe ShortsController, type: :controller do
   # ShortsController. Be sure to keep this updated too.
   let(:valid_session) { {} }
 
-  describe "GET #index" do
-    it "assigns all shorts as @shorts" do
-      short = Short.create! valid_attributes
-      get :index, params: {}, session: valid_session
-      expect(assigns(:shorts)).to eq([short])
-    end
-  end
 
   describe "GET #show" do
     it "assigns the requested short as @short" do
@@ -56,14 +49,6 @@ RSpec.describe ShortsController, type: :controller do
     it "assigns a new short as @short" do
       get :new, params: {}, session: valid_session
       expect(assigns(:short)).to be_a_new(Short)
-    end
-  end
-
-  describe "GET #edit" do
-    it "assigns the requested short as @short" do
-      short = Short.create! valid_attributes
-      get :edit, params: {id: short.to_param}, session: valid_session
-      expect(assigns(:short)).to eq(short)
     end
   end
 
@@ -97,62 +82,6 @@ RSpec.describe ShortsController, type: :controller do
         post :create, params: {short: invalid_attributes}, session: valid_session
         expect(response).to render_template("new")
       end
-    end
-  end
-
-  describe "PUT #update" do
-    context "with valid params" do
-      let(:new_attributes) {
-        {id: 123456789, url: 'http://www.algo.com'}
-      }
-
-      it "updates the requested short" do
-        short = Short.create! valid_attributes
-        put :update, params: {id: short.to_param, short: new_attributes}, session: valid_session
-        short.reload
-        expect(short).to be_valid
-      end
-
-      it "assigns the requested short as @short" do
-        short = Short.create! valid_attributes
-        put :update, params: {id: short.to_param, short: valid_attributes}, session: valid_session
-        expect(assigns(:short)).to eq(short)
-      end
-
-      it "redirects to the short" do
-        short = Short.create! valid_attributes
-        put :update, params: {id: short.to_param, short: valid_attributes}, session: valid_session
-        expect(response).to redirect_to(short)
-      end
-    end
-
-    context "with invalid params" do
-      it "assigns the short as @short" do
-        short = Short.create! valid_attributes
-        put :update, params: {id: short.to_param, short: invalid_attributes}, session: valid_session
-        expect(assigns(:short)).to eq(short)
-      end
-
-      it "re-renders the 'edit' template" do
-        short = Short.create! valid_attributes
-        put :update, params: {id: short.to_param, short: invalid_attributes}, session: valid_session
-        expect(response).to render_template("edit")
-      end
-    end
-  end
-
-  describe "DELETE #destroy" do
-    it "destroys the requested short" do
-      short = Short.create! valid_attributes
-      expect {
-        delete :destroy, params: {id: short.to_param}, session: valid_session
-      }.to change(Short, :count).by(-1)
-    end
-
-    it "redirects to the shorts list" do
-      short = Short.create! valid_attributes
-      delete :destroy, params: {id: short.to_param}, session: valid_session
-      expect(response).to redirect_to(shorts_url)
     end
   end
 

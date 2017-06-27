@@ -21,11 +21,4 @@ RSpec.feature 'Users Page', :type => :feature do
     expect(page).to have_selector('tr', count: 2)
   end
   
-  scenario 'Change user privileges' do
-    click_link 'Show'
-    expect(page).to have_content('Admin status: true')
-    click_button 'Change privileges'
-    expect(User.find(1).admin).to be false
-  end
-  
 end

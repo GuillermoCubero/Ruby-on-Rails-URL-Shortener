@@ -5,14 +5,15 @@ include TestHelper::Features
 RSpec.feature 'UrlsPaginations', type: :feature do
     
     before do
-        WillPaginate.per_page = 1
-        2.times do |n|
+        WillPaginate.per_page = 4
+        5.times do |n|
           url  = "http://www.url#{n}.com"
           Short.create!(id: n, url: url)
         end
         User.create(email:'admin@admin.com', password:'admin123', password_confirmation: 'admin123', admin: true)
         login_user("admin@admin.com", "admin123")
-        visit '/shorts'
+        visit root_path
+        click_link 'Manage URLs'
     end
     
     scenario 'Pagination is rendered' do
@@ -22,12 +23,13 @@ RSpec.feature 'UrlsPaginations', type: :feature do
     describe 'Pagination lists all urls' do
         it 'list first page' do
             expect(page).to have_content('http://www.url0.com')
-            expect(page).to have_selector('tr', count: 1)
+            expect(page).to have_content('http://www.url3.com')
+            expect(page).to have_selector('tr', count: 4)
         end
         
         it 'list last page' do
             click_link 'Next'
-            expect(page).to have_content('http://www.url1.com')
+            expect(page).to have_content('http://www.url4.com')
             expect(page).to have_selector('tr', count: 1)
         end
     end

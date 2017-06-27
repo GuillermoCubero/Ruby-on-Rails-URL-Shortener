@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.feature 'Short URL Page', :type => :feature do
   
   before do
-    visit '/shorts/new'
+    visit 'shorts/new'
   end
   
   scenario 'Visit the Short Url Page' do
