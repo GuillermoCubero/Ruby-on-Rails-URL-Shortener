@@ -2,10 +2,10 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :shorts, only: [:index, :edit, :update, :destroy]
+    resources :user, only: [:index, :destroy, :show]
   end
 
   devise_for :users
-  resources :user, only: [:index, :destroy, :show]
   root 'static_pages#home'
   
   resources :shorts, only: [:show, :create, :new]

@@ -8,7 +8,8 @@ RSpec.feature 'Users Page', :type => :feature do
   
   before do
     login_user(user.email, "admin123")
-    visit '/user'
+    visit root_path
+    click_link 'Manage Users'
   end
   
   scenario 'Visit the Short Url Page' do

@@ -13,7 +13,8 @@ RSpec.feature 'UsersPaginations', type: :feature do
           User.create!(id: n, email: email, password: password, password_confirmation: password_confirmation, admin: true)
         end
         login_user("email1@email.com", "password")
-        visit '/user'
+        visit root_path
+        click_link 'Manage Users'
     end
     
     scenario 'Pagination is rendered' do
