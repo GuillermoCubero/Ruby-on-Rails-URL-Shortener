@@ -1,4 +1,3 @@
-<% if current_user.try(:admin?) %>
   <% provide(:title, "| See the Shorts") %>
   
   <div class="page-header">
@@ -17,8 +16,8 @@
             <tr>
               <td class='col-md-9'><h5><strong>URL: </strong><%= link_url(short.url) %></h5></td>
               <td><%= link_to 'Show', short, class: "btn btn-info" %></td>
-              <td><%= link_to 'Edit', edit_short_path(short), class: "btn btn-primary" %></td>
-              <td><%= link_to 'Destroy', short, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+              <td><%= link_to 'Edit', edit_admin_short_path(short), class: "btn btn-primary" %></td>
+              <td><%= link_to 'Destroy', admin_short_path(short), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
             </tr>
           <% end %>
         </tbody>
@@ -35,7 +34,4 @@
     </div>
   </div>
   
-<% else %>
-  <% controller.redirect_to root_path, notice: 'Need to be administrator for this.' %> 
-<% end %>
   

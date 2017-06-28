@@ -8,7 +8,8 @@ RSpec.feature 'Users Page', :type => :feature do
   
   before do
     login_user(user.email, "admin123")
-    visit '/user'
+    visit root_path
+    click_link 'Manage Users'
   end
   
   scenario 'Visit the Short Url Page' do
@@ -19,13 +20,6 @@ RSpec.feature 'Users Page', :type => :feature do
     expect(page).to have_content('Email: registeredemail@email.com')
     expect(page).to have_content('Admin: true')
     expect(page).to have_selector('tr', count: 2)
-  end
-  
-  scenario 'Change user privileges' do
-    click_link 'Show'
-    expect(page).to have_content('Admin status: true')
-    click_button 'Change privileges'
-    expect(User.find(1).admin).to be false
   end
   
 end

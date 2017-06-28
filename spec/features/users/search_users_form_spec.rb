@@ -10,9 +10,10 @@ RSpec.feature 'RSpec Test', :type => :feature do
       User.create!(id: n, email: email, password: password, password_confirmation: password_confirmation, admin: true)
     end
     login_user("email0@email.com", "password")
-    visit '/user'
+    visit root_path
+    click_link 'Manage Users'
   end
-  
+      
   scenario 'Visit the Manage Users Page' do
     expect(page).to have_title('URL Shortener | See the Users')
   end

@@ -1,4 +1,3 @@
-<% if current_user.try(:admin?) %>
   <% provide(:title, "| See the Users") %>
   
   <div class="page-header">
@@ -18,8 +17,8 @@
           <tr>
             <td class='col-md-3'><h5><strong>Admin:</strong> <%= user.admin %></h5></td>
             <td class='col-md-7'><h5><strong>Email:</strong> <%= user.email %></h5></td>
-            <td><%= link_to 'Show', user, class: "btn btn-info pull-right" %></td>
-            <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger pull-right" %></td>
+            <td><%= link_to 'Show', admin_user_path(user), class: "btn btn-info pull-right" %></td>
+            <td><%= link_to 'Destroy', admin_user_path(user), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger pull-right" %></td>
           </tr>
         <% end %>
         </tbody>
@@ -34,7 +33,3 @@
       <%= link_to 'Back', :back, class: "btn btn-default" %>
     </div>
   </div>
-  
-<% else %>
-  <% controller.redirect_to root_path, notice: 'Need to be administrator for this.' %> 
-<% end %>

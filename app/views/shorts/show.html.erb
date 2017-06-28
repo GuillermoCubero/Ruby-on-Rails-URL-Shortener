@@ -17,7 +17,7 @@
         <h5><strong>Shorted Url: </strong><%= link_to request.base_url+'/'+@short.short_url, @short.url, id: 'id-of-link', :target => "_blank" %></h5>
     </div>
     <div class="panel-footer">
-    <%= link_to 'Edit', edit_short_path(@short), class: "btn btn-primary" %> 
+    <%= link_to 'Edit', edit_admin_short_path(@short), class: "btn btn-primary" %> 
     <%= link_to 'Back', :back, class: "btn btn-default" %>
     </div>
 </div>
