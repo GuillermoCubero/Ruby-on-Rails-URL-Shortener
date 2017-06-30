@@ -1,0 +1,143 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/home/ubuntu/workspace/app/helpers/admin/application_helper.rb": [
+        1,
+        null
+      ],
+      "/home/ubuntu/workspace/app/helpers/admin/shorts_helper.rb": [
+        1,
+        null
+      ],
+      "/home/ubuntu/workspace/app/helpers/admin/user_helper.rb": [
+        1,
+        null
+      ],
+      "/home/ubuntu/workspace/app/helpers/application_helper.rb": [
+        1,
+        null
+      ],
+      "/home/ubuntu/workspace/app/helpers/greetings_helper.rb": [
+        1,
+        null
+      ],
+      "/home/ubuntu/workspace/app/helpers/password_resets_helper.rb": [
+        1,
+        null
+      ],
+      "/home/ubuntu/workspace/app/helpers/shorts_helper.rb": [
+        1,
+        null,
+        1,
+        0,
+        null,
+        null,
+        null
+      ],
+      "/home/ubuntu/workspace/app/helpers/static_pages_helper.rb": [
+        1,
+        null
+      ],
+      "/home/ubuntu/workspace/app/helpers/test_helper.rb": [
+        1,
+        1,
+        1,
+        2,
+        null,
+        2,
+        2,
+        null,
+        2,
+        null,
+        null,
+        null
+      ],
+      "/home/ubuntu/workspace/app/helpers/user_helper.rb": [
+        1,
+        null,
+        1,
+        0,
+        null,
+        null,
+        null
+      ],
+      "/home/ubuntu/workspace/app/controllers/static_pages_controller.rb": [
+        1,
+        1,
+        4,
+        4,
+        null,
+        null
+      ],
+      "/home/ubuntu/workspace/app/controllers/application_controller.rb": [
+        1,
+        1,
+        null
+      ],
+      "/home/ubuntu/workspace/app/models/short.rb": [
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        0,
+        null,
+        null,
+        1,
+        null,
+        1,
+        0,
+        0,
+        null,
+        null,
+        null
+      ],
+      "/home/ubuntu/workspace/app/controllers/admin/user_controller.rb": [
+        1,
+        null,
+        1,
+        2,
+        null,
+        null,
+        1,
+        null,
+        null,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        null,
+        null,
+        null,
+        1,
+        null,
+        1,
+        0,
+        null,
+        null,
+        null
+      ],
+      "/home/ubuntu/workspace/app/controllers/admin/application_controller.rb": [
+        1,
+        1,
+        null,
+        1,
+        null,
+        1,
+        2,
+        2,
+        0,
+        0,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    "timestamp": 1498846593
+  }
+}

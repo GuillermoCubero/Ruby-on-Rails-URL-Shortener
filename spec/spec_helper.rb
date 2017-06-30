@@ -19,6 +19,8 @@
 
 RSpec.configure do |config|
   
+  require 'simplecov'
+  SimpleCov.start
   require 'capybara/email/rspec'
   
   # rspec-expectations config goes here. You can use an alternate

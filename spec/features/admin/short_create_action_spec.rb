@@ -1,9 +1,16 @@
 require 'rails_helper'
+include TestHelper::Features
 
-RSpec.feature 'Short URL Page', :type => :feature do
+RSpec.feature 'Short Create Action', :type => :feature do
+  
+  let(:admin){ User.create(email:'admin@admin.com', password:'admin123', password_confirmation: 'admin123', admin: true) }
   
   before do
-    visit 'shorts/new'
+    visit root_path
+    click_link 'Login'
+    login_user(admin.email, "admin123")
+    click_link 'Manage URLs'
+    click_link 'New Short'
   end
   
   scenario 'Visit the Short Url Page' do

@@ -48,6 +48,7 @@ group :development, :test do
   gem 'rails-controller-testing' #intalada para que pase el test "ShortsController GET #new assigns a new short as @short"
   gem 'show_me_the_cookies'
   gem 'capybara-email'
+  gem 'simplecov'
 end
 
 group :development do
