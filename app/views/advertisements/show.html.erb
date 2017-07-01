@@ -1,0 +1,32 @@
+<% if current_user.try(:admin?) || current_user.id == advert(params[:id]).user_id %>
+    <% provide(:title, "| Advertisements Info") %>
+    
+    <div class="page-header">
+      <h1>Show <small>Your Advertisements Information</small></h1>
+    </div>
+    
+    <%= render 'shared/show_flash' %>
+    
+    <div class="panel panel-default">
+        <div class="panel-heading"><h4>See your Advertisements information</h4></div>
+        <div class="panel-body">
+            <h5><strong>Owner: </strong><%= user(advert(params[:id]).user_id).email %></h5>
+            <h5><strong>Advertisement title: </strong><%= advert(params[:id]).title %></h5>
+            <h5><strong>Advertisement create date: </strong><%= advert(params[:id]).created_at %></h5>
+            <h5><strong>Advertisement last updated date: </strong><%= advert(params[:id]).updated_at %></h5>
+            <h5><strong>Advertisement picture: </strong> <%= image_tag(advert(params[:id]).picture.url, class: 'img-responsive', alt: "imagen") %></h5>
+        </div>
+        <div class="panel-footer">
+            <table>
+            <tbody>
+                <tr>
+                  <td><%= link_to 'Destroy', advert(params[:id]), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger", id: "espacio" %></td>
+                  <td><%= link_to 'Back', :back, class: "btn btn-default" %></td>
+                </tr>
+            </tbody>
+          </table>
+        </div>
+    </div>
+<% else %>
+  <% controller.redirect_to root_path, notice: 'Need to be administrator for this.' %> 
+<% end %>

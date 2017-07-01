@@ -85,9 +85,61 @@ User.create!([{
     password: 'alguien7',
     password_confirmation: 'alguien7',
     admin: false
-},{
+},
+{
     email:'alguien8@gmail.com',
     password: 'alguien8',
     password_confirmation: 'alguien8',
     admin: false
+}])
+
+Advertisement.create!([{
+    title:  'Anuncio 1',
+    user_id: 3,
+    picture: File.open(File.join(Rails.root,"/app/assets/images/logo.png"))
+},
+{
+    title:  'Anuncio 2',
+    user_id: 3,
+    picture: File.open(File.join(Rails.root,"/app/assets/images/logo.png"))
+},
+{
+    title:  'Anuncio 3',
+    user_id: 3,
+    picture: File.open(File.join(Rails.root,"/app/assets/images/logo.png"))
+},
+{
+    title:  'Anuncio 4',
+    user_id: 3,
+    picture: File.open(File.join(Rails.root,"/app/assets/images/logo.png"))
+},
+{
+    title:  'Anuncio 5',
+    user_id: 3,
+    picture: File.open(File.join(Rails.root,"/app/assets/images/logo.png"))
+},
+{
+    title:  'Anuncio 6',
+    user_id: 3,
+    picture: File.open(File.join(Rails.root,"/app/assets/images/logo.png"))
+},
+{
+    title:  'Anuncio 7',
+    user_id: 3,
+    picture: File.open(File.join(Rails.root,"/app/assets/images/logo.png"))
+},
+{
+    title:  'Anuncio 8',
+    user_id: 3,
+    picture: File.open(File.join(Rails.root,"/app/assets/images/logo.png"))
+},
+{
+    title:  'Anuncio 9',
+    user_id: 3,
+    picture: File.open(File.join(Rails.root,"/app/assets/images/logo.png"))
+},
+{
+    title:  'Anuncio 10',
+    user_id: 3,
+    picture: File.open(File.join(Rails.root,"/app/assets/images/logo.png"))
 }])

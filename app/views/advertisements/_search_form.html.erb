@@ -1,0 +1,7 @@
+<%= form_tag(advertisements_path, method: :get) do %>
+    <div class="input-group">
+      <%= text_field_tag :term, "" , class: "form-control pull-right", placeholder:"Search by title", id: 'busqueda' %>
+      <span class="input-group-btn"><%= submit_tag 'Search', name: nil, class: "btn btn-default", id: 'busqueda2' %></span>
+    </div>
+<% end %>
+ 

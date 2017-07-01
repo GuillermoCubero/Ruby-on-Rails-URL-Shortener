@@ -1,0 +1,44 @@
+<% provide(:title, "| Manage  Advertisements") %>
+<div class="page-header center">
+  <h1>Manage your Advertisements <small>Manage your advertisements here</small></h1>
+</div>
+
+<%= render 'shared/show_flash' %>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3 center">
+    <%= render 'advertisements/form', advertisement: @advertisement %>
+  </div>
+</div>
+  
+<% if @advertisements2.any? %>
+<div class="panel panel-default" id="signup">
+  <div class="panel-heading"><h4>Manage all the advertisements</h4></div>
+  <div class="panel-body">
+    
+    <table class="table table-striped">
+      <tbody>
+        <tr class='col-md-9'><%= render 'advertisements/search_form' %></tr>
+        <% @advertisements2.each do |advert| %>
+        <tr>
+          <td class='col-md-9'><h5><strong>Title:</strong> <%= advert.title %></h5></td>
+          <td><%= link_to 'Show', advert, class: "btn btn-info" %></td>
+          <td><%= link_to 'Edit', edit_advertisement_path(advert), class: "btn btn-primary" %></td>
+          <td><%= link_to 'Destroy', advert, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+      
+  </div>
+  <div class="panel-footer">
+    <div class="text-center">
+      <%= will_paginate(@advertisements2) %>
+    </div>
+  </div>
+</div>
+<% end %>
+
+<div class="boton_inicio center">
+    <%= link_to 'Back', :back, class: "btn btn-default" %>
+</div>

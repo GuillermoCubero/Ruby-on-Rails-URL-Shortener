@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   root 'static_pages#home'
   
   resources :shorts, only: [:show, :create, :new]
+  resources :advertisements
   get 'greetings/hello'
   get ":id", to: "shorts#redirect_id"
 
