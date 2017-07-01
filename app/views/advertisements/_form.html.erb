@@ -2,10 +2,10 @@
   <div class="col-md-12 ">
   <%= form_for(@advertisement) do |f| %> 
     <%= render 'shared/error_messages', object: f.object %>
-    <%= f.label :title, "Introduce a title for your advertisement" %>
+    <%= f.label :title, "Introduce a title for your advertisement: " %>
     <%= f.text_field :title, class: "form-control", placeholder:"Title for your advertisement" %>
-    <%= f.label :title, "Select a picture for your advertisement" %>
-    <%= f.file_field :picture, class: "form-control"%>
+    <%= f.label :title, "Select a picture for your advertisement: " %>
+    <%= f.file_field :picture, class: "input-file"%>
     <%= f.submit "Create advertisement", class: "btn btn-success", id: 'signup'%>
   <% end %>
   </div>
