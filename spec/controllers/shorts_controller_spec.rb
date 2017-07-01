@@ -24,11 +24,11 @@ RSpec.describe ShortsController, type: :controller do
   # Short. As you add validations to Short, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    {id: 123456789, url: 'http://algo.com'}
+    {id: 1, url: 'http://algo.com'}
   }
 
   let(:invalid_attributes) {
-    {id:123456789 , url: ''}
+    {id:1 , url: ''}
   }
 
   # This should return the minimal set of values that should be in the session
@@ -36,6 +36,14 @@ RSpec.describe ShortsController, type: :controller do
   # ShortsController. Be sure to keep this updated too.
   let(:valid_session) { {} }
 
+
+  describe 'redirect_id' do
+    it 'redirects the shortened id to original' do
+      short = Short.create! valid_attributes
+      get :redirect_id, params: {id: short.to_param}, session: valid_session
+      expect(response).to redirect_to(short.url)
+    end
+  end
 
   describe "GET #show" do
     it "assigns the requested short as @short" do

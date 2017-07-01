@@ -16,10 +16,4 @@ class Admin::UserController < Admin::ApplicationController
         end
     end
     
-    private
-  
-    def user_params
-      params.require(:user).permit(:admin, :term)
-    end
-    
 end
