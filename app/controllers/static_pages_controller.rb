@@ -3,8 +3,11 @@ class StaticPagesController < ApplicationController
     @short = Short.new
     @short2 = Short.last
     @advertisement = Advertisement.new
+  end
+  
+  def manageadvertisements
     if current_user
-      @advertisements2 = current_user.advertisements.paginate(page: params[:page])
+      @advertisements2 = current_user.advertisements.search(params[:term]).paginate(page: params[:page])
     end
   end
   

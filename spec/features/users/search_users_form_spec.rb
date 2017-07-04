@@ -1,4 +1,5 @@
 require 'rails_helper'
+include TestHelper::Features
 
 RSpec.feature 'RSpec Test', :type => :feature do
   
@@ -27,6 +28,7 @@ RSpec.feature 'RSpec Test', :type => :feature do
   scenario 'Search and not find any other users' do
     fill_in 'term', with: 'email1@email.com'
     click_button 'Search'
+    expect(page).to have_content("Email: email1@email.com")
     expect(page).to_not have_content("Email: email0@email.com")
   end
   

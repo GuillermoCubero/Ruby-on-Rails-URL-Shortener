@@ -1,8 +1,12 @@
-<%= form_for(advertisement) do |f| %> 
-  <%= render 'shared/error_messages', object: f.object %>
-  <%= f.label :title, "Your URL to edit:" %>
-  <%= f.text_field :title, class: "form-control"%>
-  <%= f.label :title, "Select a picture for your advertisement" %>
-    <%= f.file_field :picture, class: "form-control"%>
-  <%= f.submit "Update short", class: "btn btn-default", id: 'signup' %>
-<% end %>
+<div class="row">
+  <div class="col-md-12 ">
+  <%= form_for(advertisement) do |f| %> 
+    <%= render 'shared/error_messages', object: f.object %>
+    <%= f.label :title, "Select a new title for your advertisement" %>
+    <%= f.text_field :title, class: "form-control"%>
+    <%= f.label :title, "Select a new picture for your advertisement" %>
+    <%= f.file_field :picture, class: "browse btn btn-primary btn-block", id: "picture" %>
+    <%= f.submit "Update advertisement", class: "btn btn-default", id: 'signup'%>
+  <% end %>
+  </div>
+</div>

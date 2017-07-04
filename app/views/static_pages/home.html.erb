@@ -28,7 +28,7 @@
 
 <% if current_user && !current_user.admin? %>
     <div class="page-header center">
-    <h1>Manage your Advertisements <small>Manage your advertisements here</small></h1>
+    <h1>Create your Advertisement <small>Create an advertisement here</small></h1>
   </div>
   
   <div class="row">
@@ -37,35 +37,6 @@
     </div>
   </div>
     
-  <% if @advertisements2.any? %>
-  <div class="col-md-10 col-md-offset-1">
-    <div class="panel panel-default" id="signup">
-      <div class="panel-heading"><h4>Manage all the advertisements</h4></div>
-      <div class="panel-body">
-        
-        <table class="table table-striped">
-          <tbody>
-            <tr class='col-md-9'><%= render 'advertisements/search_form' %></tr>
-            <% @advertisements2.each do |advert| %>
-            <tr>
-              <td class='col-md-9'><h5><strong>Title:</strong> <%= advert.title %></h5></td>
-              <td><%= link_to 'Show', advert, class: "btn btn-info" %></td>
-              <td><%= link_to 'Edit', edit_advertisement_path(advert), class: "btn btn-primary" %></td>
-              <td><%= link_to 'Destroy', advert, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
-            </tr>
-          <% end %>
-          </tbody>
-        </table>
-          
-      </div>
-      <div class="panel-footer">
-        <div class="text-center">
-          <%= will_paginate(@advertisements2) %>
-        </div>
-      </div>
-    </div>
-  </div>
-  <% end %>
 <% end %>
 
 </div>

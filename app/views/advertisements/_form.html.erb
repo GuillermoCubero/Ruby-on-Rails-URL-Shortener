@@ -5,7 +5,7 @@
     <%= f.label :title, "Introduce a title for your advertisement: " %>
     <%= f.text_field :title, class: "form-control", placeholder:"Title for your advertisement" %>
     <%= f.label :title, "Select a picture for your advertisement: " %>
-    <%= f.file_field :picture, class: "input-file"%>
+    <%= f.file_field :picture, class: "browse btn btn-primary btn-block", id: "picture" %>
     <%= f.submit "Create advertisement", class: "btn btn-success", id: 'signup'%>
   <% end %>
   </div>

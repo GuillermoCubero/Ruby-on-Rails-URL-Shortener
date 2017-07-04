@@ -22,7 +22,7 @@ class AdvertisementsController < ApplicationController
             if current_user.admin?
               format.html { redirect_to advertisements_path, notice: 'Advertisement was successfully created.' }
             else
-                format.html { redirect_to static_pages_manageadvertisements_path, notice: 'Advertisement was successfully created.' }
+                format.html { redirect_to root_path, notice: 'Advertisement was successfully created.' }
             end
             format.json { render :new, status: :created, location: @advertisement }
           else
@@ -52,7 +52,7 @@ class AdvertisementsController < ApplicationController
             if current_user.admin?
               format.html { redirect_to advertisements_path, notice: 'Advertisement was successfully destroyed.' }
             else
-              format.html { redirect_to static_pages_manageadvertisements_path, notice: 'Advertisement was successfully destroyed.' }
+              format.html { redirect_to root_path, notice: 'Advertisement was successfully destroyed.' }
             end
             format.json { head :no_content }
         end
