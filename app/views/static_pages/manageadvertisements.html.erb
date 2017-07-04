@@ -2,23 +2,23 @@
 
 <div class="container">
   
-
 <% if current_user && !current_user.admin? %>
     <div class="page-header center">
-    <h1>Manage your Advertisements <small>Manage your advertisements here</small></h1>
-  </div>
+      <h1>Manage your Advertisements <small>Manage your advertisements here</small></h1>
+    </div>
   
   <%= render 'shared/show_flash' %>
     
   <% if @advertisements2.any? %>
   <div class="col-md-10 col-md-offset-1">
     <div class="panel panel-default" id="signup">
+      
       <div class="panel-heading"><h4>Manage all the advertisements</h4></div>
+      
       <div class="panel-body">
-        
         <table class="table table-striped">
           <tbody>
-            <tr class='col-md-9'><%= render 'advertisements/search_form' %></tr>
+            <tr class='col-md-9'><%= render 'advertisements/user_search_form' %></tr>
             <% @advertisements2.each do |advert| %>
             <tr>
               <td class='col-md-9'><h5><strong>Title:</strong> <%= advert.title %></h5></td>
@@ -29,13 +29,14 @@
           <% end %>
           </tbody>
         </table>
-          
       </div>
+      
       <div class="panel-footer">
         <div class="text-center">
           <%= will_paginate(@advertisements2) %>
         </div>
       </div>
+      
     </div>
   </div>
   <% end %>

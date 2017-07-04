@@ -13,14 +13,14 @@
   </div>
 
   <div class="row">  
-    <div class="col-md-10 col-md-offset-1 center">
+    <div class="col-md-8 col-md-offset-2 center">
       <%= render 'shorts/form' %>
     </div>
   </div>    
   
   <% if flash.notice == 'Short was successfully created.' %>
     <div class="row" id="margen">
-      <div class="col-md-10 col-md-offset-1 center">
+      <div class="col-md-8 col-md-offset-2 center">
         <%= render 'shorts/home_form' %>
       </div>
     </div>
@@ -32,7 +32,7 @@
   </div>
   
   <div class="row">
-    <div class="col-md-6 col-md-offset-3 center">
+    <div class="col-md-8 col-md-offset-2 center">
       <%= render 'advertisements/form', advertisement: @advertisement %>
     </div>
   </div>
