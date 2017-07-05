@@ -1,7 +1,7 @@
 class AdvertisementsController < ApplicationController
     
     def index
-        @advertisements = Advertisement.search(params[:term]).paginate(page: params[:page])
+        @advertisements = current_user.advertisements.search(params[:term]).paginate(page: params[:page])
     end
     
     def show
@@ -19,11 +19,7 @@ class AdvertisementsController < ApplicationController
         @advertisement = current_user.advertisements.build(advertisement_params)
         respond_to do |format|
           if @advertisement.save
-            if current_user.admin?
-              format.html { redirect_to advertisements_path, notice: 'Advertisement was successfully created.' }
-            else
-                format.html { redirect_to root_path, notice: 'Advertisement was successfully created.' }
-            end
+            format.html { redirect_to root_path, notice: 'Advertisement was successfully created.' }
             format.json { render :new, status: :created, location: @advertisement }
           else
             format.html { render :new }
@@ -49,11 +45,7 @@ class AdvertisementsController < ApplicationController
         @advertisement = Advertisement.find(params[:id])
         @advertisement.destroy
         respond_to do |format|
-            if current_user.admin?
-              format.html { redirect_to advertisements_path, notice: 'Advertisement was successfully destroyed.' }
-            else
-              format.html { redirect_to static_pages_manageadvertisements_path, notice: 'Advertisement was successfully destroyed.' }
-            end
+            format.html { redirect_to advertisements_path, notice: 'Advertisement was successfully destroyed.' }
             format.json { head :no_content }
         end
     end

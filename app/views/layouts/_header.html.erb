@@ -19,9 +19,9 @@
           <% if current_user.admin? %>
             <li><%= link_to "Manage URLs", admin_shorts_path %></li>
             <li><%= link_to "Manage Users", admin_user_index_path %></li>
-            <li><%= link_to "Manage Advertisements", advertisements_path %></li>
+            <li><%= link_to "Manage Advertisements",  admin_admin_advertisements_path %></li>
           <% elsif %>
-          <li><%= link_to "Manage Advertisements", static_pages_manageadvertisements_path %></li>
+          <li><%= link_to "Manage Advertisements", advertisements_path %></li>
           <% end %>
           <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
         <% else %>

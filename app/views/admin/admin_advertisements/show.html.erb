@@ -19,7 +19,7 @@
             <table>
             <tbody>
                 <tr>
-                  <td><%= link_to 'Destroy', advert(params[:id]), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger", id: "espacio" %></td>
+                  <td><%= link_to 'Destroy', admin_admin_advertisement_path(advert(params[:id])), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger", id: "espacio" %></td>
                   <td><%= link_to 'Back', :back, class: "btn btn-default" %></td>
                 </tr>
             </tbody>

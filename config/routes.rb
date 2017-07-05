@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :shorts, only: [:index, :edit, :update, :destroy]
     resources :user, only: [:index, :destroy, :show]
+    resources :admin_advertisements, only: [:index, :show, :destroy]
   end
 
   devise_for :users
