@@ -1,15 +1,15 @@
 require 'rails_helper'
 
-# Specs in this file have access to a helper object that includes
-# the AdvertisementsHelper. For example:
-#
-# describe AdvertisementsHelper do
-#   describe "string concat" do
-#     it "concats two strings with spaces" do
-#       expect(helper.concat_strings("this","that")).to eq("this that")
-#     end
-#   end
-# end
 RSpec.describe AdvertisementsHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+    
+    let(:user){ User.create!(id: 1, email: 'email@email.com', password: 'password', password_confirmation: 'password', admin: true) }
+    
+    describe "advert(id)" do
+        it "finds an advertisement into the database" do
+            advertisement = Advertisement.create!(title: 'Title', user_id: user.id, 
+                picture: File.open(File.join(Rails.root,"/app/assets/images/logo.png")))
+            expect(helper.advert(1).title).to eql(advertisement.title)
+        end
+    end
+    
 end
