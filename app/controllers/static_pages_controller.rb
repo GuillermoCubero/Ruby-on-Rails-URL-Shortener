@@ -6,4 +6,8 @@ class StaticPagesController < ApplicationController
     @advertisement = Advertisement.new
   end
   
+  def redirect
+    @advertisement = Advertisement.find(Random.rand(1..Advertisement.last.id))
+  end
+  
 end
