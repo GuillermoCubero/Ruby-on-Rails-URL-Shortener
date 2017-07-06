@@ -7,7 +7,8 @@ class StaticPagesController < ApplicationController
   end
   
   def redirect
-    @advertisement = Advertisement.find(Random.rand(1..Advertisement.last.id))
+    @advertisement = Advertisement.order("RANDOM()").first
+    @origin = Short.find(params[:rid]).url
   end
   
 end

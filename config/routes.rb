@@ -9,11 +9,11 @@ Rails.application.routes.draw do
   devise_for :users
   root 'static_pages#home'
   get 'static_pages/redirect'
+  get ":id", to: "shorts#redirect_id"
   
   resources :shorts, only: [:show, :create, :new]
   resources :advertisements
   get 'greetings/hello'
-  get ":id", to: "shorts#redirect_id"
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

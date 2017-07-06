@@ -2,7 +2,7 @@
     <div class="panel-heading"><h4>See your URL information</h4></div>
     <div class="panel-body">
         <h5><strong>Url: </strong><%= link_url(@short2.url) %></h5>
-        <h5><strong>Shorted Url: </strong><%= link_to request.base_url+'/'+@short2.short_url, @short2.url, id: 'id-of-link', :target => "_blank" %></h5>
+        <h5><strong>Shorted Url: </strong><%= link_to request.base_url+'/'+@short2.short_url, static_pages_redirect_path(rid: @short2.id), id: 'id-of-link', :target => "_blank" %></h5>
     </div>
     <div class="panel-footer">
         <h6>URL shortened by URL SHORTENER APLICATION.</h6>

@@ -2,7 +2,7 @@ class ShortsController < ApplicationController
   before_action :set_short, only: [:show]
 
   def redirect_id
-    redirect_to Short.find(params[:id].to_i(36)).url
+    redirect_to static_pages_redirect_path(rid: params[:id].to_i(36))
   end
   
 

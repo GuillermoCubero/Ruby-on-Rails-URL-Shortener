@@ -1,21 +1,40 @@
 <% provide(:title, "| Redirecting") %>
-
+<body onload=timedCount()>
 <div class="container">
-  
   
   <div class="row">
     <div class="col-md-12">
       <div class="page-header center">
-        <h1>Redirecting <small> You will be redirected to the original URL</small></h1>
+        <h1>Redirecting <small> You will skip the advertisement in: <span id="seconds">my_input</span> seconds.</small></h1>
       </div>
     </div>
   </div>
 
-  <div class="row">  
+  <div class="row"> 
     <div class="col-md-12 center">
       <h2><%= @advertisement.title %></h2>
       <%= image_tag(@advertisement.picture, class: 'img-responsive center-block', alt: "anuncio") %>
     </div>
-  </div>    
+  </div>
+  
+  <div class="row"> 
+    <div class="col-md-12 center">
+      <%= link_to "Skip advertisement now", @origin, id: "signup", class: "btn btn-default", :target => "_blank" %>
+    </div>
+  </div>
+  
+  <script>
+    var c=5;
+    $(signup).hide();
+    function timedCount(){
+    	$("#seconds").html(c);
+    	c=c-1;
+    	if(c==-1){
+    	  $(signup).show();
+    	  return;
+    	}
+    	setTimeout("timedCount()",1000);
+    }
+  </script>
   
 </div>

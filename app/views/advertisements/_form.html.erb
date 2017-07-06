@@ -5,7 +5,10 @@
     <%= f.label :title, "Introduce a title for your advertisement: " %>
     <%= f.text_field :title, class: "form-control", placeholder:"Title for your advertisement" %>
     <%= f.label :title, "Select a picture for your advertisement: " %>
-    <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png', class: "browse btn btn-primary btn-block", id: "picture" %>
+    <img id="prev" class="img-responsive" >
+        <span class="btn btn-default btn-file btn-block">
+          <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png', id: "picture" %> Search… 
+        </span>
     <%= f.submit "Create advertisement", class: "btn btn-success", id: 'signup'%>
   <% end %>
   </div>
@@ -26,5 +29,22 @@
     alert('This document extension is not allowed.');
   }
   return accept;
+});
+</script>
+
+<script>
+function readURL(input) {
+
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+    reader.onload = function (e) {
+      $('#prev').attr('src', e.target.result);
+    }
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+
+$("#picture").change(function(){
+    readURL(this);
 });
 </script>
