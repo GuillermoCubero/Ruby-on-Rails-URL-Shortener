@@ -15,7 +15,7 @@ RSpec.feature 'UsersPaginations', type: :feature do
       end
         login_user(user.email, "password")
         visit root_path
-        click_link 'Manage Advertisements'
+        click_link 'Ads'
     end
     
     scenario 'Pagination is rendered' do

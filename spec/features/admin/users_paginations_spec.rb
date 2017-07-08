@@ -14,7 +14,7 @@ RSpec.feature 'UsersPaginations', type: :feature do
         end
         login_user("email1@email.com", "password")
         visit root_path
-        click_link 'Manage Users'
+        click_link 'Users'
     end
     
     scenario 'Pagination is rendered' do

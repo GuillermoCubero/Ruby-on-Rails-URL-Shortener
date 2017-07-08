@@ -10,4 +10,11 @@ RSpec.describe ShortsHelper, type: :helper do
         end
     end
     
+    describe "short(id)" do
+        it "finds a short into the database" do
+            short = Short.create!(id: 1, url: 'algo.com')
+            expect(helper.short(1).url).to eql(short.url)
+        end
+    end
+    
 end

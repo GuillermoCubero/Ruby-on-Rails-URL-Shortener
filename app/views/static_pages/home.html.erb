@@ -2,8 +2,6 @@
 
 <div class="container">
   
-  <%= render 'shared/show_flash' %>
-  
   <div class="row">
     <div class="col-md-12">
       <div class="page-header center">
@@ -11,6 +9,8 @@
       </div>
     </div>
   </div>
+
+ <%= render 'shared/show_flash' %>
 
   <div class="row">  
     <div class="col-md-8 col-md-offset-2 center">
@@ -25,18 +25,5 @@
       </div>
     </div>
   <% end %>
-
-<% if current_user && !current_user.admin? %>
-    <div class="page-header center">
-    <h1>Create your Advertisement <small>Create an advertisement here</small></h1>
-  </div>
-  
-  <div class="row">
-    <div class="col-md-8 col-md-offset-2 center">
-      <%= render 'advertisements/form', advertisement: @advertisement %>
-    </div>
-  </div>
-    
-<% end %>
 
 </div>

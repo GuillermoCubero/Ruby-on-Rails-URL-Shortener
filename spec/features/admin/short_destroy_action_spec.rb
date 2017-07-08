@@ -10,7 +10,7 @@ RSpec.feature 'Short Destroy Action', :type => :feature do
     visit root_path
     click_link 'Login'
     login_user(admin.email, "admin123")
-    click_link 'Manage URLs'
+    click_link 'URLs'
   end
 
   scenario 'Visit the Shorts Page' do

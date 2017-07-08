@@ -11,7 +11,7 @@ RSpec.feature 'Ads Destroy Action', :type => :feature do
     picture: File.open(File.join(Rails.root,"/app/assets/images/logo.png")))
     login_user(admin.email, "password")
     visit root_path
-    click_link 'Manage Advertisements'
+    click_link 'Ads'
   end
   
   scenario 'Visit the Advertisements Page' do

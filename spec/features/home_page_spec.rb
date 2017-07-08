@@ -6,7 +6,7 @@ RSpec.feature "HomePage", type: :feature do
         visit '/'
     end
     
-    scenario "render the unique value proposition" do
+    scenario "Visit the home page" do
         expect(page).to have_title('URL Shortener | Home')    
     end
     

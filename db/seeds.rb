@@ -42,31 +42,40 @@ User.create!([{
     email:'admin@admin.com',
     password: 'admin123',
     password_confirmation: 'admin123',
-    admin: true
+    admin: true,
+    name: 'Oliverio',
+    company: 'Universidad de Las Palmas de Gran Canaria'
 },
 {
     email:'alguien@gmail.com',
     password: 'alguien',
     password_confirmation: 'alguien',
-    admin: false
+    admin: false,
+    name: 'Alguien',
+    company: 'Universidad de Las Palmas de Gran Canaria'
 },
 {
-    email:'alguien2@gmail.com',
-    password: 'alguien2',
-    password_confirmation: 'alguien2',
-    admin: false
+    email:'heladeria@gmail.com',
+    password: 'heladeria',
+    password_confirmation: 'heladeria',
+    admin: false,
+    name: 'Heladero',
+    company: 'Heladeria Fria'
 },
 {
-    email:'alguien3@gmail.com',
-    password: 'alguien3',
-    password_confirmation: 'alguien3',
-    admin: false
+    email:'cantante@gmail.com',
+    password: 'cantante',
+    password_confirmation: 'cantante',
+    admin: false,
+    name: 'Anthony Kiedis',
+    company: 'Red Hot Chilli Pepers'
 },
 {
-    email:'alguien4@gmail.com',
-    password: 'alguien4',
-    password_confirmation: 'alguien4',
-    admin: false
+    email:'frases@gmail.com',
+    password: 'frases',
+    password_confirmation: 'frases',
+    admin: false,
+    company: 'Frases motivadoras'
 },
 {
     email:'alguien5@gmail.com',
@@ -78,13 +87,15 @@ User.create!([{
     email:'alguien6@gmail.com',
     password: 'alguien6',
     password_confirmation: 'alguien6',
-    admin: false
+    admin: false,
+    company: 'ONG Pacifista'
 },
 {
     email:'alguien7@gmail.com',
     password: 'alguien7',
     password_confirmation: 'alguien7',
-    admin: false
+    admin: false,
+    company: 'Miguel Guisado' 
 },
 {
     email:'alguien8@gmail.com',
@@ -94,52 +105,52 @@ User.create!([{
 }])
 
 Advertisement.create!([{
-    title:  'Anuncio 1',
+    title:  'Nuevo Máster de la EII',
     user_id: 3,
-    picture: File.open(File.join(Rails.root,"/app/assets/images/logo.png"))
+    picture: File.open(File.join(Rails.root,"/app/assets/images/master.jpg"))
 },
 {
-    title:  'Anuncio 2',
-    user_id: 3,
-    picture: File.open(File.join(Rails.root,"/app/assets/images/logo.png"))
+    title:  'Helados al 25%',
+    user_id: 4,
+    picture: File.open(File.join(Rails.root,"/app/assets/images/helado.png"))
 },
 {
-    title:  'Anuncio 3',
-    user_id: 3,
-    picture: File.open(File.join(Rails.root,"/app/assets/images/logo.png"))
+    title:  'Nuevo disco en breve',
+    user_id: 5,
+    picture: File.open(File.join(Rails.root,"/app/assets/images/redhot.jpg"))
 },
 {
-    title:  'Anuncio 4',
-    user_id: 3,
-    picture: File.open(File.join(Rails.root,"/app/assets/images/logo.png"))
+    title:  'Reflexiona sobre ello',
+    user_id: 6,
+    picture: File.open(File.join(Rails.root,"/app/assets/images/frase.jpg"))
 },
 {
-    title:  'Anuncio 5',
-    user_id: 3,
-    picture: File.open(File.join(Rails.root,"/app/assets/images/logo.png"))
+    title:  'No a la guerra',
+    user_id: 8,
+    picture: File.open(File.join(Rails.root,"/app/assets/images/granada.jpg"))
 },
 {
-    title:  'Anuncio 6',
+    title:  'Apuntate al Doble Grado y hazte rico!!',
     user_id: 3,
-    picture: File.open(File.join(Rails.root,"/app/assets/images/logo.png"))
+    picture: File.open(File.join(Rails.root,"/app/assets/images/doble.jpg"))
 },
 {
-    title:  'Anuncio 7',
+    title:  'Entra al grado y disfruta de tu carrera soñada',
     user_id: 3,
-    picture: File.open(File.join(Rails.root,"/app/assets/images/logo.png"))
+    picture: File.open(File.join(Rails.root,"/app/assets/images/gii.jpg"))
 },
 {
-    title:  'Anuncio 8',
+    title:  'Aquapark, descuentos para alumnos en lluvia del 50%',
     user_id: 3,
-    picture: File.open(File.join(Rails.root,"/app/assets/images/logo.png"))
+    picture: File.open(File.join(Rails.root,"/app/assets/images/escuela.jpg"))
 },
 {
-    title:  'Anuncio 9',
-    user_id: 3,
-    picture: File.open(File.join(Rails.root,"/app/assets/images/logo.png"))
+    title:  'No te asustes y presenta sin miedo',
+    user_id: 9,
+    picture: File.open(File.join(Rails.root,"/app/assets/images/presenta.jpg"))
 },
 {
-    title:  'Anuncio 10',
+    title:  'Escudo',
     user_id: 3,
-    picture: File.open(File.join(Rails.root,"/app/assets/images/logo.png"))
+    picture: File.open(File.join(Rails.root,"/app/assets/images/escudo.jpg"))
 }])

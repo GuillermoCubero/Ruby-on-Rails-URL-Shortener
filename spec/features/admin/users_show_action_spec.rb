@@ -10,7 +10,7 @@ RSpec.feature 'Users Show Action', :type => :feature do
     visit root_path
     click_link 'Login'
     login_user(admin.email, "admin123")
-    click_link 'Manage Users'
+    click_link 'Users'
     click_link 'Show'
   end
 

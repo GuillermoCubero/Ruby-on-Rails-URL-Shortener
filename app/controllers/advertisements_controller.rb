@@ -1,4 +1,6 @@
 class AdvertisementsController < ApplicationController
+    before_filter :correct_user, only: [:show, :destroy, :edit]
+
     
     def index
         @advertisements = current_user.advertisements.search(params[:term]).paginate(page: params[:page])

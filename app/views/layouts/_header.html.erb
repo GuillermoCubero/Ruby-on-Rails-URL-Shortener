@@ -17,12 +17,13 @@
         <% if current_user %>
           <li id='usuario'><h5>User: <%= current_user.email%></h5></li>
           <% if current_user.admin? %>
-            <li><%= link_to "Manage URLs", admin_shorts_path %></li>
-            <li><%= link_to "Manage Users", admin_user_index_path %></li>
-            <li><%= link_to "Manage Advertisements",  admin_admin_advertisements_path %></li>
-          <% elsif %>
-          <li><%= link_to "Manage Advertisements", advertisements_path %></li>
+            <li><%= link_to "URLs", admin_shorts_path %></li>
+            <li><%= link_to "Users", admin_user_index_path %></li>
+            <li><%= link_to "Ads",  admin_admin_advertisements_path %></li>
+          <% else %>
+            <li><%= link_to "Ads", advertisements_path %></li>
           <% end %>
+          <li><%= link_to "Profile", edit_user_registration_path %></li>
           <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
         <% else %>
           <li><%= link_to "Sign up", new_user_registration_path %></li>

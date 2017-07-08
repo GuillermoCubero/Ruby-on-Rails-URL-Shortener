@@ -11,7 +11,7 @@ RSpec.feature 'Ads Edit Action', :type => :feature do
     picture: File.open(File.join(Rails.root,"/app/assets/images/logo.png")))
     login_user(user.email, "password")
     visit root_path
-    click_link 'Manage Advertisements'
+    click_link 'Ads'
     click_link 'Edit'
   end
   

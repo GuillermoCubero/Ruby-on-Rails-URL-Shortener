@@ -10,7 +10,7 @@ RSpec.feature 'Short Show Action', :type => :feature do
     visit root_path
     click_link 'Login'
     login_user(admin.email, "admin123")
-    click_link 'Manage URLs'
+    click_link 'URLs'
     click_link 'Show'
   end
 
@@ -19,7 +19,7 @@ RSpec.feature 'Short Show Action', :type => :feature do
   end
   
   scenario 'See the shortened url info' do
-    expect(page).to have_content('Url: http://example.com')
+    expect(page).to have_content('Original Url: http://example.com')
     expect(page).to have_content('Shorted Url:  http://www.example.com/1')
   end
   

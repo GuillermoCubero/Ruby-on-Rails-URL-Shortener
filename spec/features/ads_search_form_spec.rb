@@ -13,7 +13,7 @@ RSpec.feature 'RSpec Test', :type => :feature do
     end
     login_user(user.email, "password")
     visit root_path
-    click_link 'Manage Advertisements'
+    click_link 'Ads'
   end
       
   scenario 'Visit the Advertisements Page' do

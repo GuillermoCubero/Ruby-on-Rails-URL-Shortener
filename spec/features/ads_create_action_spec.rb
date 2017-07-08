@@ -8,10 +8,11 @@ RSpec.feature 'Ads Create Action', :type => :feature do
   before do
     login_user(user.email, "password")
     visit root_path
+    click_link 'New Advertisement'
   end
   
   scenario 'Visit the Advertisements Page' do
-    expect(page).to have_title('URL Shortener | Home')
+    expect(page).to have_title('URL Shortener | Create an Advertisement')
   end
   
   scenario 'Create an advertisement with blank data' do

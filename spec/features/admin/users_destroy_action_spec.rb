@@ -10,7 +10,7 @@ RSpec.feature 'Users Destroy Action', :type => :feature do
     visit root_path
     click_link 'Login'
     login_user(admin.email, "admin123")
-    click_link 'Manage Users'
+    click_link 'Users'
   end
 
   scenario 'Visit the Users Page' do
@@ -22,6 +22,13 @@ RSpec.feature 'Users Destroy Action', :type => :feature do
     click_button 'Search'
     click_link 'Destroy'
     expect(page).to have_content('User was successfully destroyed.')
+  end
+  
+  scenario 'Destroy an admin' do
+    fill_in 'term', with: admin.email
+    click_button 'Search'
+    click_link 'Destroy'
+    expect(page).to have_content('Cannot destroy an admin.')
   end
   
 end

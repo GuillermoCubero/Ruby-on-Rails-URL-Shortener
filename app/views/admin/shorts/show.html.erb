@@ -13,11 +13,12 @@
 <div class="panel panel-default">
     <div class="panel-heading"><h4>See your URL information</h4></div>
     <div class="panel-body">
-        <h5><strong>Url: </strong><%= link_url(@short.url) %></h5>
-        <h5><strong>Shorted Url: </strong><%= link_to request.base_url+'/'+@short.short_url, request.base_url+'/'+@short.short_url, id: 'id-of-link', :target => "_blank" %></h5>
+        <h5><strong>Original Url: </strong><%= link_url(short(params[:id]).url) %></h5>
+        <h5><strong>Shorted Url: </strong><%= link_to request.base_url+'/'+short(params[:id]).short_url, request.base_url+'/'+short(params[:id]).short_url, id: 'id-of-link', :target => "_blank" %></h5>
+        <h5><strong>Short create at: </strong><%= short(params[:id]).created_at %></h5>
+        <h5><strong>Short update at: </strong><%= short(params[:id]).updated_at %></h5>
     </div>
     <div class="panel-footer">
-    <%= link_to 'Edit', edit_admin_short_path(@short), class: "btn btn-primary" %> 
     <%= link_to 'Back', :back, class: "btn btn-default" %>
     </div>
 </div>

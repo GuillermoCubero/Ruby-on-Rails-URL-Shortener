@@ -1,11 +1,6 @@
 class ShortsController < ApplicationController
   before_action :set_short, only: [:show]
 
-  def redirect_id
-    redirect_to static_pages_redirect_path(rid: params[:id].to_i(36))
-  end
-  
-
   # GET /shorts/1
   # GET /shorts/1.json
   def show

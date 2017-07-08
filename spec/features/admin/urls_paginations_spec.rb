@@ -13,7 +13,7 @@ RSpec.feature 'UrlsPaginations', type: :feature do
         User.create(email:'admin@admin.com', password:'admin123', password_confirmation: 'admin123', admin: true)
         login_user("admin@admin.com", "admin123")
         visit root_path
-        click_link 'Manage URLs'
+        click_link 'URLs'
     end
     
     scenario 'Pagination is rendered' do

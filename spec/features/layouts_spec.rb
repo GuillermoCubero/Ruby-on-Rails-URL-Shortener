@@ -1,8 +1,10 @@
 require 'rails_helper'
+include TestHelper::Features
 
 RSpec.feature "Layouts", type: :feature do
     
-    let(:user) { User.create(id: 1, email:'registeredemail@email.com', password:'admin123', password_confirmation:'admin123', admin: true) }
+    let(:admin) { User.create(id: 1, email:'registeredemail@email.com', password:'admin123', password_confirmation:'admin123', admin: true) }
+    let(:user) { User.create(id: 2, email:'user@email.com', password:'password', password_confirmation:'password') }
     
     before do
         visit '/'
@@ -13,10 +15,16 @@ RSpec.feature "Layouts", type: :feature do
             expect(page).to have_link("Login")
         end
         
-        it 'has the Manage links' do
-            login_user(user.email, "admin123")
-            expect(page).to have_link("Manage URLs")
-            expect(page).to have_link("Manage Users")
+        it 'has the User Manage links' do
+            login_user(admin.email, "admin123")
+            expect(page).to have_link("URLs")
+            expect(page).to have_link("Users")
+            expect(page).to have_link("Ads")
+        end
+        
+        it 'has the Admin Manage links' do
+            login_user(user.email, "password")
+            expect(page).to have_link("Ads")
         end
     end
     

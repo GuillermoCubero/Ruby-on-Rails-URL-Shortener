@@ -1,12 +1,50 @@
 <div class="row">
   <div class="col-md-12 ">
-  <%= form_for(advertisement) do |f| %> 
+  <%= form_for(@advertisement) do |f| %> 
     <%= render 'shared/error_messages', object: f.object %>
-    <%= f.label :title, "Select a new title for your advertisement" %>
-    <%= f.text_field :title, class: "form-control"%>
-    <%= f.label :title, "Select a new picture for your advertisement" %>
-    <%= f.file_field :picture, class: "browse btn btn-primary btn-block", id: "picture" %>
-    <%= f.submit "Update advertisement", class: "btn btn-default", id: 'signup'%>
+    <%= f.label :title, "Select a new title for your advertisement: " %>
+    <%= f.text_field :title, class: "form-control", placeholder:"Title for your advertisement" %>
+    <%= f.label :title, "Select a new picture for your advertisement: " %>
+    <img id="prev" class="img-responsive" >
+        <span class="btn btn-default btn-file btn-block">
+          <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png', id: "picture" %> Search… 
+        </span>
+    <%= f.submit "Update advertisement", class: "btn btn-primary", id: 'signup'%>
   <% end %>
   </div>
 </div>
+
+<script>
+  $('form').submit(function() {
+  var accept, size_in_megabytes, extension;
+  accept = true;
+  size_in_megabytes = $('#picture')[0].files[0].size / 1024 / 1024;
+  extension = /\.(gif|jpg|jpeg|png)$/i.test(document.getElementById('picture').value);
+  if (size_in_megabytes > 5) {
+    accept = false;
+    alert('Maximum file size is 5MB. Please choose a smaller file.');
+  }
+  if (!extension){
+    accept = false;
+    alert('This document extension is not allowed.');
+  }
+  return accept;
+});
+</script>
+
+<script>
+function readURL(input) {
+
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+    reader.onload = function (e) {
+      $('#prev').attr('src', e.target.result);
+    }
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+
+$("#picture").change(function(){
+    readURL(this);
+});
+</script>
