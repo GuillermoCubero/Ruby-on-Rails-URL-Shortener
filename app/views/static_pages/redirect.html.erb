@@ -12,10 +12,12 @@
 
   <div class="row"> 
     <div class="col-md-12 center">
-      <h2><%= @advertisement2.title %></h2>
-      <%= image_tag(@advertisement2.picture, class: 'img-responsive center-block', alt: "anuncio", id:'borde') %>
-      <% if !@advertiser.blank? %>
-      <h4><strong>Advertisement sponsored by:</strong> <%= @advertiser %></h4>
+      <% if !@advertisement.blank? %>
+        <h2><%= @advertisement2.title %></h2>
+        <%= image_tag(@advertisement2.picture, class: 'img-responsive center-block', alt: "anuncio", id:'borde') %>
+        <% if !@advertiser.blank? %>
+        <h4><strong>Advertisement sponsored by:</strong> <%= @advertiser %></h4>
+        <%end%>
       <%end%>
     </div>
   </div>
