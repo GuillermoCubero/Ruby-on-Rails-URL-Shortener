@@ -10,5 +10,6 @@ if Rails.env.production?
     }
     config.fog_directory =  ENV['S3_BUCKET']
     config.cache_dir = "#{Rails.root}/tmp/uploads"
+    config.fog_host = "#{ENV['S3_ASSET_URL']}/#{ENV['S3_BUCKET']}"
   end
 end
