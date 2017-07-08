@@ -5,9 +5,11 @@ class StaticPagesController < ApplicationController
   end
   
   def redirect
-    @advertisement = Advertisement.order("RANDOM()").first
+    if Advertisement.count > 0
+      @advertisement = Advertisement.order("RANDOM()").first
+      @advertiser = User.find(@advertisement.user_id).company
+    end
     @redirection = Short.find(params[:id].to_i(36)).url
-    @advertiser = User.find(@advertisement.user_id).company
   end
   
   def welcome
