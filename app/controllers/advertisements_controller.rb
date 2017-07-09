@@ -1,5 +1,5 @@
 class AdvertisementsController < ApplicationController
-    before_action :correct_user, only: [:show, :destroy, :edit]
+    before_action :correct_user, only: [:show, :destroy, :edit, :update]
 
     
     def index
