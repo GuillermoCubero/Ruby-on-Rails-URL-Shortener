@@ -3,7 +3,7 @@ include TestHelper::Features
 
 RSpec.feature 'Ads Destroy Action', :type => :feature do
   
-  let(:admin){ User.create(email:'admin@example.com', password:'password', password_confirmation: 'password', admin:true) }
+  let(:admin){ User.create(email:'admin@example.com', password:'password', password_confirmation: 'password', admin: true) }
   
   before do
     Advertisement.create(title:  'Anuncio 1', 

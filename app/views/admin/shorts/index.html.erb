@@ -11,12 +11,20 @@
     <div class="panel-body">
     
     <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Original URL</th>
+          <th>Shorted URL</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
       <tbody>
         <tr class='col-md-9'><%= render 'search_form' %></tr>
         <% @shorts.each do |short| %>
         <tr>
-            <td class='col-md-5'><h5><strong>Original: </strong><%= link_url(short.url) %></h5></td>
-            <td class='col-md-5'><h5><strong>Shorted: </strong><%= link_url(request.base_url+'/'+short.short_url) %></h5></td>
+            <td class='col-md-5'><h5><%= link_url(short.url) %></h5></td>
+            <td class='col-md-5'><h5><%= link_url(request.base_url+'/'+short.short_url) %></h5></td>
             <td><%= link_to 'Show', admin_short_path(short), class: "btn btn-info" %></td>
             <td><%= link_to 'Destroy', admin_short_path(short), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
         </tr>

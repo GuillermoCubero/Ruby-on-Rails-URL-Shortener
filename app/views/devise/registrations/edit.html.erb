@@ -1,7 +1,7 @@
 <% provide(:title, "| Profile") %>
 
 <div class="page-header center">
-  <h1><%=current_user.name%> Profile <small>See all your info here</small></h1>
+  <h1><% if current_user.name? %> <%=current_user.name%>'s <% end %> Profile <small>See all your info here</small></h1>
 </div>
 
 <div class="row">

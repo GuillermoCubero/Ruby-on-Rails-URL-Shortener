@@ -4,34 +4,35 @@ include TestHelper::Features
 
 RSpec.feature 'UsersPaginations', type: :feature do
     
+  let(:admin) { User.create(email:'admin@email.com', password:'password', password_confirmation: 'password', admin: true) }
+
     before do
+      5.times do |n|
         WillPaginate.per_page = 4
-        5.times do |n|
-          email = "email#{n}@email.com"
-          password = "password"
-          password_confirmation = "password"
-          User.create!(id: n, email: email, password: password, password_confirmation: password_confirmation, admin: true)
-        end
-        login_user("email1@email.com", "password")
+        title = "Anuncio #{n}"
+        picture = File.open(File.join(Rails.root,"/app/assets/images/logo.png"))
+        Advertisement.create!(id: n, title: title, user_id: admin.id, picture: picture)
+      end
+        login_user(admin.email, "password")
         visit root_path
-        click_link 'Users'
+        click_link 'Ads'
     end
     
     scenario 'Pagination is rendered' do
         expect(page).to have_selector('div .pagination')
     end
     
-    describe 'Pagination lists all urls' do
+    describe 'Pagination lists all advertisements' do
         it 'list first page' do
-            expect(page).to have_content('email4@email.com')
-            expect(page).to have_content('email1@email.com')
-            expect(page).to have_selector('tr', count: 5)
+            expect(page).to have_content('Anuncio 4')
+            expect(page).to have_content('Anuncio 1')
+            expect(page).to have_selector('tr', count: 6)
         end
         
         it 'list last page' do
             click_link 'Next'
-            expect(page).to have_content('email0@email.com')
-            expect(page).to have_selector('tr', count: 2)
+            expect(page).to have_content('Anuncio 0')
+            expect(page).to have_selector('tr', count: 3)
         end
     end
     

@@ -11,12 +11,20 @@
     <div class="panel-body">
     
       <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Owner</th>
+            <th>Title</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
         <tbody>
           <tr class='col-md-9'><%= render 'search_form' %></tr>
           <% @advertisements.each do |advert| %>
           <tr>
-            <td class='col-md-3'><h5><strong>Owner:</strong> <%= user(advert.user_id).email %></h5></td>
-            <td class='col-md-7'><h5><strong>Title:</strong> <%= advert.title %></h5></td>
+            <td class='col-md-3'><h5><%= user(advert.user_id).email %></h5></td>
+            <td class='col-md-7'><h5><%= advert.title %></h5></td>
             <td><%= link_to 'Show', admin_admin_advertisement_path(advert), class: "btn btn-info" %></td>
             <td><%= link_to 'Destroy',  admin_admin_advertisement_path(advert), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
           </tr>

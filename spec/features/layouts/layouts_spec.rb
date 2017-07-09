@@ -16,15 +16,17 @@ RSpec.feature "Layouts", type: :feature do
         end
         
         it 'has the User Manage links' do
+            login_user(user.email, "password")
+            expect(page).to have_link("Ads")
+            expect(page).to have_link("Profile")
+        end
+        
+        it 'has the Admin Manage links' do
             login_user(admin.email, "admin123")
             expect(page).to have_link("URLs")
             expect(page).to have_link("Users")
             expect(page).to have_link("Ads")
-        end
-        
-        it 'has the Admin Manage links' do
-            login_user(user.email, "password")
-            expect(page).to have_link("Ads")
+            expect(page).to have_link("Profile")
         end
     end
     

@@ -2,7 +2,7 @@ require 'rails_helper'
 include TestHelper::Features
 
 
-RSpec.feature 'UrlsPaginations', type: :feature do
+RSpec.feature 'Shorts Paginations', type: :feature do
     
     before do
         WillPaginate.per_page = 4
@@ -24,13 +24,13 @@ RSpec.feature 'UrlsPaginations', type: :feature do
         it 'list first page' do
             expect(page).to have_content('http://www.url0.com')
             expect(page).to have_content('http://www.url3.com')
-            expect(page).to have_selector('tr', count: 5)
+            expect(page).to have_selector('tr', count: 6)
         end
         
         it 'list last page' do
             click_link 'Next'
             expect(page).to have_content('http://www.url4.com')
-            expect(page).to have_selector('tr', count: 2)
+            expect(page).to have_selector('tr', count: 3)
         end
     end
     

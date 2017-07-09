@@ -11,11 +11,19 @@
     <div class="panel-body">
     
       <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th></th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
         <tbody>
           <tr class='col-md-9'><%= render 'search_form' %></tr>
           <% @advertisements.each do |advert| %>
           <tr>
-            <td class='col-md-9'><h5><strong>Title:</strong> <%= advert.title %></h5></td>
+            <td class='col-md-9'><h5><%= advert.title %></h5></td>
             <td><%= link_to 'Show', advert, class: "btn btn-info" %></td>
             <td><%= link_to 'Edit', edit_advertisement_path(advert), class: "btn btn-primary" %></td>
             <td><%= link_to 'Destroy', advert, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
