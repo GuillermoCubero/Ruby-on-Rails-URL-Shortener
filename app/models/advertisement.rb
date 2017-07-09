@@ -15,7 +15,7 @@ class Advertisement < ApplicationRecord
   end
   
   def picture_size
-    unless picture.blank?
+    unless picture.nil?
       if picture.size > 5.megabytes
         errors.add(:picture, "should be less than 5MB.")
       end
