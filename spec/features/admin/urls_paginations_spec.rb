@@ -24,13 +24,13 @@ RSpec.feature 'UrlsPaginations', type: :feature do
         it 'list first page' do
             expect(page).to have_content('http://www.url0.com')
             expect(page).to have_content('http://www.url3.com')
-            expect(page).to have_selector('tr', count: 4)
+            expect(page).to have_selector('tr', count: 5)
         end
         
         it 'list last page' do
             click_link 'Next'
             expect(page).to have_content('http://www.url4.com')
-            expect(page).to have_selector('tr', count: 1)
+            expect(page).to have_selector('tr', count: 2)
         end
     end
     

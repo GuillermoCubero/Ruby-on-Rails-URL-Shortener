@@ -3,7 +3,7 @@ class Admin::ShortsController < Admin::ApplicationController
   # GET /shorts
   # GET /shorts.json
   def index
-    @shorts = Short.paginate(page: params[:page])
+    @shorts = Short.search(params[:term]).paginate(page: params[:page]).order("url ASC")
   end
 
   # DELETE /shorts/1
@@ -21,7 +21,7 @@ class Admin::ShortsController < Admin::ApplicationController
   
     # Never trust parameters from the scary internet, only allow the white list through.
     def short_params
-      params.require(:short).permit(:url)
+      params.require(:short).permit(:url, :term)
     end
     
 end

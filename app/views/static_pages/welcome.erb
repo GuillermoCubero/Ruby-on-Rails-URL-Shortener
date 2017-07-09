@@ -12,10 +12,10 @@
       
       <div class="panel">
         <div class="panel-heading text-center">
-          <h3><strong>Hello <%= @gender %> <%= @name %></strong></h3>
+          <h3><strong>Hello <% unless @name.blank? %><%= @gender %> <%= @name %><% end %></strong></h3>
         </div>
-        <h4 class='text-center'>This is the administration page of your profile from here you can 
-        perform the various actions available from your account. As <strong><%= @role %></strong> you can do the followings things:</h4>
+        <h4 class='text-center'>This is the administration page of your profile.
+        <br>As <strong><%= @role %></strong> you can do the followings things:</br></h4>
       </div>
       
       <div class="btn-group btn-group-justified" role="group" aria-label="...">

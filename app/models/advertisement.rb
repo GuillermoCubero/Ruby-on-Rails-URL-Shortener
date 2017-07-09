@@ -1,7 +1,7 @@
 class Advertisement < ApplicationRecord
   belongs_to :user
   validates :user_id, presence: true
-  validates :title, presence: true
+  validates :title, presence: true, length: { maximum: 80 }
   validates :picture, presence: true
   validate  :picture_size
   mount_uploader :picture, PictureUploader

@@ -1,5 +1,5 @@
 class AdvertisementsController < ApplicationController
-    before_filter :correct_user, only: [:show, :destroy, :edit]
+    before_action :correct_user, only: [:show, :destroy, :edit]
 
     
     def index
@@ -34,7 +34,7 @@ class AdvertisementsController < ApplicationController
         @advertisement = Advertisement.find(params[:id])
         respond_to do |format|
           if @advertisement.update(advertisement_params)
-            format.html { redirect_to @advertisement, notice: 'Advertisement was successfully updated.' }
+            format.html { redirect_to advertisements_path, notice: 'Advertisement was successfully updated.' }
             format.json { render :show, status: :ok, location: @short }
           else
             format.html { render :edit }

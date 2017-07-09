@@ -7,6 +7,14 @@ class Short < ApplicationRecord
         self.id.to_s(36)
     end
     
+    def self.search(term)
+        if term
+          where('url LIKE ?', "%#{term}%").order('id ASC')
+        else
+          order('id ASC') 
+        end
+    end
+    
     private
     
         def add_url_protocol

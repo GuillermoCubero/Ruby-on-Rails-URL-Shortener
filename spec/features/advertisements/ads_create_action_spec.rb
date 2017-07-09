@@ -8,6 +8,7 @@ RSpec.feature 'Ads Create Action', :type => :feature do
   before do
     login_user(user.email, "password")
     visit root_path
+    click_link 'Ads'
     click_link 'New Advertisement'
   end
   
