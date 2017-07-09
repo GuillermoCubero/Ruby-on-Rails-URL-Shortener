@@ -3,7 +3,7 @@ class Advertisement < ApplicationRecord
   validates :user_id, presence: true
   validates :title, presence: true, length: { maximum: 80 }
   validates :picture, presence: true
-  validate  :picture_size
+  validate  :picture_size, on: :create
   mount_uploader :picture, PictureUploader
   
   def self.search(term)
@@ -15,10 +15,8 @@ class Advertisement < ApplicationRecord
   end
   
   def picture_size
-    unless picture.nil?
-      if picture.size > 5.megabytes
-        errors.add(:picture, "should be less than 5MB.")
-      end
+    if picture.size > 5.megabytes
+      errors.add(:picture, "should be less than 5MB.")
     end
   end
 
