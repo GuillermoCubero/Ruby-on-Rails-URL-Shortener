@@ -14,7 +14,10 @@ RSpec.describe ShortsController, type: :routing do
     it "routes to #show" do
       expect(:get => "/shorts/1").to route_to("shorts#show", :id => "1")
     end
-
+    
+    it "routes to admin#show" do
+      expect(:get => "admin/shorts/1").to route_to("admin/shorts#show", :id => "1")
+    end
 
     it "routes to #create" do
       expect(:post => "/shorts").to route_to("shorts#create")

@@ -5,7 +5,10 @@ class Admin::ShortsController < Admin::ApplicationController
   def index
     @shorts = Short.search(params[:term]).paginate(page: params[:page]).order("url ASC")
   end
-
+  
+  def show
+  end
+  
   # DELETE /shorts/1
   # DELETE /shorts/1.json
   def destroy

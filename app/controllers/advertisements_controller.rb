@@ -21,7 +21,7 @@ class AdvertisementsController < ApplicationController
         @advertisement = current_user.advertisements.build(advertisement_params)
         respond_to do |format|
           if @advertisement.save
-            format.html { redirect_to root_path, notice: 'Advertisement was successfully created.' }
+            format.html { redirect_to advertisements_path, notice: 'Advertisement was successfully created.' }
             format.json { render :new, status: :created, location: @advertisement }
           else
             format.html { render :new }

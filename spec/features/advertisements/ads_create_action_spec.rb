@@ -30,6 +30,13 @@ RSpec.feature 'Ads Create Action', :type => :feature do
     expect(page).to have_content("Picture should be less than 5MB.")
   end
   
+  scenario 'Create an advertisement with invalid title' do
+    fill_in 'Introduce a title for your advertisement:', with: 'a'*81
+    page.attach_file('picture', Rails.root + 'app/assets/images/logo.png') 
+    click_button 'Create advertisement'
+    expect(page).to have_content("Title is too long (maximum is 80 characters)")
+  end
+  
   scenario 'Create a valid advertisement' do
     fill_in 'Introduce a title for your advertisement:', with: 'Title 1'
     page.attach_file('picture', Rails.root + 'app/assets/images/logo.png') 
