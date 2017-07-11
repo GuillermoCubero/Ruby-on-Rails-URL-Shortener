@@ -8,9 +8,9 @@
   
   <div class="panel panel-default">
     <div class="panel-heading"><h4>Management</h4></div>
-    <div class="panel-body">
+    <div class="panel-body scroll-x">
     
-    <table class="table table-striped">
+    <table class="table table-striped scroll-x">
       <thead>
         <tr>
           <th>Original URL</th>
@@ -23,8 +23,8 @@
         <tr class='col-md-9'><%= render 'search_form' %></tr>
         <% @shorts.each do |short| %>
         <tr>
-            <td class='col-md-5'><h5><%= link_url(short.url) %></h5></td>
-            <td class='col-md-5'><h5><%= link_url(request.base_url+'/'+short.short_url) %></h5></td>
+            <td class='col-md-5 max-length wrap-word'><h5><%= link_url(short.url) %></h5></td>
+            <td class='col-md-5 max-length wrap-word'><h5><%= link_url(request.base_url+'/'+short.short_url) %></h5></td>
             <td><%= link_to 'Show', admin_short_path(short), class: "btn btn-info" %></td>
             <td><%= link_to 'Destroy', admin_short_path(short), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
         </tr>

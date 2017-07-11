@@ -219,3 +219,19 @@ label{
   border: 2px solid #FFCC00;
   padding: 20px;
 }
+
+/* Estilos de tablas */
+.wrap-word {
+  overflow-wrap: break-word;
+}
+
+.max-length{
+  max-width: 300px;
+}
+
+
+@media screen and (max-width: 710px) {
+  .scroll-x{
+    overflow-x: scroll;
+  }
+}

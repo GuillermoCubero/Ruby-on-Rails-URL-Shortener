@@ -1,6 +1,6 @@
 <div class="panel panel-default">
     <div class="panel-heading"><h4>See your URL information</h4></div>
-    <div class="panel-body">
+    <div class="panel-body wrap-word">
         <h5><strong>Url: </strong><%= link_url(@short2.url) %></h5>
         <h5><strong>Shorted Url: </strong><%= link_to request.base_url+'/'+@short2.short_url, request.base_url+'/'+@short2.short_url, id: 'id-of-link', :target => "_blank" %></h5>
     </div>
