@@ -14,26 +14,26 @@
       <img src="./assets/0.10.1/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2017-07-10T12:07:02+00:00">2017-07-10T12:07:02+00:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2017-07-12T18:15:37+00:00">2017-07-12T18:15:37+00:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="green">99.51%</span></span>
+    (<span class="covered_percent"><span class="green">99.53%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         4.25
+         4.24
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
-    <b>70</b> files in total.
-    <b>1222</b> relevant lines. 
-    <span class="green"><b>1216</b> lines covered</span> and
+    <b>71</b> files in total.
+    <b>1273</b> relevant lines. 
+    <span class="green"><b>1267</b> lines covered</span> and
     <span class="red"><b>6</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -107,7 +107,7 @@
         <td>13</td>
         <td>11</td>
         <td>2</td>
-        <td>37.7</td>
+        <td>42.5</td>
       </tr>
       
       <tr>
@@ -137,7 +137,7 @@
         <td>17</td>
         <td>17</td>
         <td>0</td>
-        <td>48.6</td>
+        <td>51.4</td>
       </tr>
       
       <tr>
@@ -247,7 +247,7 @@
         <td>7</td>
         <td>7</td>
         <td>0</td>
-        <td>43.3</td>
+        <td>46.7</td>
       </tr>
       
       <tr>
@@ -538,6 +538,16 @@
         <td>16</td>
         <td>0</td>
         <td>1.4</td>
+      </tr>
+      
+      <tr>
+        <td class="strong"><a href="#20bf539b10978e482060ce763574139b5f968e05" class="src_link" title="spec/features/devise/edit_profile_page_spec.rb">spec/features/devise/edit_profile_page_spec.rb</a></td>
+        <td class="green strong">100.0 %</td>
+        <td>72</td>
+        <td>51</td>
+        <td>51</td>
+        <td>0</td>
+        <td>1.5</td>
       </tr>
       
       <tr>
@@ -1985,16 +1995,16 @@
           <code class="ruby">  def configure_permitted_parameters</code>
         </li>
       
-        <li class="covered" data-hits="229" data-linenumber="8">
-          <span class="hits">229</span>
+        <li class="covered" data-hits="258" data-linenumber="8">
+          <span class="hits">258</span>
           
           <code class="ruby">    devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:name, :email, :password, :password_confirmation) }</code>
         </li>
       
-        <li class="covered" data-hits="224" data-linenumber="9">
-          <span class="hits">224</span>
+        <li class="covered" data-hits="258" data-linenumber="9">
+          <span class="hits">258</span>
           
-          <code class="ruby">    devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:name, :email, :password, :current_password, :is_female, :company) }</code>
+          <code class="ruby">    devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:name, :email, :password, :password_confirmation, :current_password, :is_female, :company) }</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="10">
@@ -2432,14 +2442,14 @@
           <code class="ruby">  def home</code>
         </li>
       
-        <li class="covered" data-hits="47" data-linenumber="3">
-          <span class="hits">47</span>
+        <li class="covered" data-hits="53" data-linenumber="3">
+          <span class="hits">53</span>
           
           <code class="ruby">    @short = Short.new</code>
         </li>
       
-        <li class="covered" data-hits="47" data-linenumber="4">
-          <span class="hits">47</span>
+        <li class="covered" data-hits="53" data-linenumber="4">
+          <span class="hits">53</span>
           
           <code class="ruby">    @short2 = Short.last</code>
         </li>
@@ -2510,8 +2520,8 @@
           <code class="ruby">  def welcome</code>
         </li>
       
-        <li class="covered" data-hits="143" data-linenumber="16">
-          <span class="hits">143</span>
+        <li class="covered" data-hits="150" data-linenumber="16">
+          <span class="hits">150</span>
           
           <code class="ruby">    if current_user.is_female == true</code>
         </li>
@@ -2528,8 +2538,8 @@
           <code class="ruby">    else</code>
         </li>
       
-        <li class="covered" data-hits="142" data-linenumber="19">
-          <span class="hits">142</span>
+        <li class="covered" data-hits="149" data-linenumber="19">
+          <span class="hits">149</span>
           
           <code class="ruby">      @gender = &quot;Mr.&quot;</code>
         </li>
@@ -2540,8 +2550,8 @@
           <code class="ruby">    end</code>
         </li>
       
-        <li class="covered" data-hits="143" data-linenumber="21">
-          <span class="hits">143</span>
+        <li class="covered" data-hits="150" data-linenumber="21">
+          <span class="hits">150</span>
           
           <code class="ruby">    @name = current_user.name</code>
         </li>
@@ -2552,8 +2562,8 @@
           <code class="ruby">    </code>
         </li>
       
-        <li class="covered" data-hits="143" data-linenumber="23">
-          <span class="hits">143</span>
+        <li class="covered" data-hits="150" data-linenumber="23">
+          <span class="hits">150</span>
           
           <code class="ruby">    if current_user.admin?</code>
         </li>
@@ -2570,8 +2580,8 @@
           <code class="ruby">    else</code>
         </li>
       
-        <li class="covered" data-hits="59" data-linenumber="26">
-          <span class="hits">59</span>
+        <li class="covered" data-hits="66" data-linenumber="26">
+          <span class="hits">66</span>
           
           <code class="ruby">      @role = &quot;advertiser&quot;</code>
         </li>
@@ -3031,8 +3041,8 @@
           <code class="ruby">    def login_user(email, password)</code>
         </li>
       
-        <li class="covered" data-hits="75" data-linenumber="4">
-          <span class="hits">75</span>
+        <li class="covered" data-hits="81" data-linenumber="4">
+          <span class="hits">81</span>
           
           <code class="ruby">      visit &#39;/users/sign_in&#39;</code>
         </li>
@@ -3043,14 +3053,14 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="75" data-linenumber="6">
-          <span class="hits">75</span>
+        <li class="covered" data-hits="81" data-linenumber="6">
+          <span class="hits">81</span>
           
           <code class="ruby">      fill_in &#39;Email&#39;,    with: email</code>
         </li>
       
-        <li class="covered" data-hits="75" data-linenumber="7">
-          <span class="hits">75</span>
+        <li class="covered" data-hits="81" data-linenumber="7">
+          <span class="hits">81</span>
           
           <code class="ruby">      fill_in &#39;Password&#39;, with: password</code>
         </li>
@@ -3061,8 +3071,8 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="75" data-linenumber="9">
-          <span class="hits">75</span>
+        <li class="covered" data-hits="81" data-linenumber="9">
+          <span class="hits">81</span>
           
           <code class="ruby">      click_button &#39;Log in&#39;</code>
         </li>
@@ -10753,6 +10763,457 @@
         </li>
       
         <li class="never" data-hits="" data-linenumber="28">
+          
+          
+          <code class="ruby">end</code>
+        </li>
+      
+    </ol>
+  </pre>
+</div>
+
+      
+        <div class="source_table" id="20bf539b10978e482060ce763574139b5f968e05">
+  <div class="header">
+    <h3>spec/features/devise/edit_profile_page_spec.rb</h3>
+    <h4><span class="green">100.0 %</span> covered</h4>
+    <div>
+      <b>51</b> relevant lines. 
+      <span class="green"><b>51</b> lines covered</span> and
+      <span class="red"><b>0</b> lines missed.</span>
+    </div>
+  </div>
+  
+  <pre>
+    <ol>
+      
+        <li class="covered" data-hits="1" data-linenumber="1">
+          <span class="hits">1</span>
+          
+          <code class="ruby">require &#39;rails_helper&#39;</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="2">
+          <span class="hits">1</span>
+          
+          <code class="ruby">include TestHelper::Features</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="3">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="4">
+          <span class="hits">1</span>
+          
+          <code class="ruby">RSpec.feature &quot;Edit Profile Page&quot;, type: :feature do</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="5">
+          
+          
+          <code class="ruby">  </code>
+        </li>
+      
+        <li class="covered" data-hits="7" data-linenumber="6">
+          <span class="hits">7</span>
+          
+          <code class="ruby">    let(:user) { User.create(email:&#39;registeredemail@email.com&#39;, password:&#39;password&#39;, </code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="7">
+          
+          
+          <code class="ruby">      password_confirmation: &#39;password&#39;) }</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="8">
+          <span class="hits">2</span>
+          
+          <code class="ruby">    let(:user2) { User.create(email:&#39;registeredemail2@email.com&#39;, password:&#39;password&#39;, </code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="9">
+          
+          
+          <code class="ruby">      password_confirmation: &#39;password&#39;) }</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="10">
+          
+          
+          <code class="ruby">  </code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="11">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  before do</code>
+        </li>
+      
+        <li class="covered" data-hits="6" data-linenumber="12">
+          <span class="hits">6</span>
+          
+          <code class="ruby">    visit root_path</code>
+        </li>
+      
+        <li class="covered" data-hits="6" data-linenumber="13">
+          <span class="hits">6</span>
+          
+          <code class="ruby">    click_link &quot;Login&quot;</code>
+        </li>
+      
+        <li class="covered" data-hits="6" data-linenumber="14">
+          <span class="hits">6</span>
+          
+          <code class="ruby">    login_user(user.email, &#39;password&#39;)</code>
+        </li>
+      
+        <li class="covered" data-hits="6" data-linenumber="15">
+          <span class="hits">6</span>
+          
+          <code class="ruby">    click_link &quot;Profile&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="16">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="17">
+          
+          
+          <code class="ruby">  </code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="18">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  scenario &#39;Visit the profile Page&#39; do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="19">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    expect(page).to have_title(&#39;URL Shortener | Profile&#39;)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="20">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="21">
+          
+          
+          <code class="ruby">  </code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="22">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  describe &#39;Invalid updates&#39; do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="23">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    scenario &#39;Introduce blank data&#39; do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="24">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      fill_in &#39;Name&#39;, with: &#39;&#39;</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="25">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      fill_in &#39;Company&#39;, with: &#39;&#39;</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="26">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      fill_in &#39;Email&#39;, with: &#39;&#39;</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="27">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      fill_in &#39;Password&#39;, with: &#39;&#39;</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="28">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      fill_in &#39;Password confirmation&#39;, with: &#39;&#39;</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="29">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      fill_in &#39;Current password&#39;, with: &#39;&#39;</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="30">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      click_button &#39;Update&#39;</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="31">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      expect(page).to have_content(&quot;Email can&#39;t be blank&quot;)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="32">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      expect(page).to have_content(&quot;Current password can&#39;t be blank&quot;)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="33">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="34">
+          
+          
+          <code class="ruby">      </code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="35">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    scenario &#39;Introduce a short password&#39; do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="36">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      fill_in &#39;Email&#39;, with: &#39;email@email.com&#39;</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="37">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      fill_in &#39;Password&#39;, with: &#39;123&#39;</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="38">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      fill_in &#39;Password confirmation&#39;, with: &#39;123&#39;</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="39">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      fill_in &#39;Current password&#39;, with: &#39;password&#39;</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="40">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      click_button &#39;Update&#39;</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="41">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      expect(page).to have_content(&quot;Password is too short (minimum is 6 characters)&quot;)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="42">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="43">
+          
+          
+          <code class="ruby">      </code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="44">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    scenario &#39;Introduce a registered email&#39; do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="45">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      fill_in &#39;Email&#39;, with: user2.email</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="46">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      fill_in &#39;Current password&#39;, with: &#39;password&#39;</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="47">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      click_button &#39;Update&#39;</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="48">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      expect(page).to have_content(&quot;Email has already been taken&quot;)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="49">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="50">
+          
+          
+          <code class="ruby">      </code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="51">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    scenario &#39;Introduce diferent passwords&#39; do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="52">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      fill_in &#39;Password&#39;, with: &#39;123456&#39;</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="53">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      fill_in &#39;Password confirmation&#39;, with: &#39;1234567&#39;</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="54">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      fill_in &#39;Current password&#39;, with: &#39;password&#39;</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="55">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      click_button &#39;Update&#39;</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="56">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      expect(page).to have_content(&quot;Password confirmation doesn&#39;t match Password&quot;)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="57">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="58">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="59">
+          
+          
+          <code class="ruby">    </code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="60">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  describe &#39;Valid registration&#39; do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="61">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    scenario &#39;Introduce valid data&#39; do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="62">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      fill_in &#39;Name&#39;, with: &#39;User&#39;</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="63">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      fill_in &#39;Company&#39;, with: &#39;User Company&#39;</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="64">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      fill_in &#39;Email&#39;, with: &#39;email@email.com&#39;</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="65">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      fill_in &#39;Password&#39;, with: &#39;1234567&#39;</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="66">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      fill_in &#39;Password confirmation&#39;, with: &#39;1234567&#39;</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="67">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      fill_in &#39;Current password&#39;, with: &#39;password&#39;</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="68">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      click_button &#39;Update&#39;</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="69">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      expect(page).to have_content(&quot;Your account has been updated successfully.&quot;)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="70">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="71">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="72">
           
           
           <code class="ruby">end</code>

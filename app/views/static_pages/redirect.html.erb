@@ -11,9 +11,9 @@
   </div>
 
   <div class="row"> 
-    <div class="col-md-12 center">
+    <div class="col-md-12 center wrap-word">
       <% unless @advertisement.nil? %>
-        <h2><%= @advertisement.title %></h2>
+        <h2 id="title"><%= @advertisement.title %></h2>
         <%= image_tag(@advertisement.picture, class: 'img-responsive center-block', alt: "anuncio", id:'borde') %>
       <%end%>
       <% if !@advertiser.blank? %>
