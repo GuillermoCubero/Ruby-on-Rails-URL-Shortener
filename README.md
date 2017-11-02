@@ -1,6 +1,6 @@
 # Prototipo de acortador de URL's en Ruby on Rails / URL Shortener prototype on Ruby on Rails
 #### En este README está documentada toda la información necesaria para usar el prototipo de acortador de URLs.
-#### This README documents all the information necessary to use the URL shortener prototype.
+#### This README documents all the necessary information to use the URL shortener prototype.
 ***
 #### Esto es un prototipo de acortador de URLs realizado como proyecto final para el Grado de Ingeniería Informática de la [Universidad de Las Palmas de Gran Canaria.](http://www.ulpgc.es/) 
 #### Puedes visitar el despligue en Heroku aquí: http://acortador-urls.herokuapp.com/
