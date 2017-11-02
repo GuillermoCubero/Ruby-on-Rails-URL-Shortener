@@ -6,7 +6,7 @@
 #### Puedes visitar el despligue en Heroku aquí: http://acortador-urls.herokuapp.com/
 #### This is an URL Shortener prototype realized as final project for the Degree of Computer Engineering of the [University of Las Palmas de Gran Canaria.](http://www.ulpgc.es/)
 #### You can visit the Heroku deployment here: http://acortador-urls.herokuapp.com/
-<center>http://imgur.com/VGGenya.jpg</center>
+![](http://imgur.com/VGGenya.jpg)
 ***
 
 ### Inicialización del git / Git Initialization
