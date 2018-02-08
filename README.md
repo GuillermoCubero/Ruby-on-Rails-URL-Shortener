@@ -4,7 +4,7 @@
 ***
 #### Esto es un prototipo de acortador de URLs realizado como proyecto final para el Grado de Ingeniería Informática de la [Universidad de Las Palmas de Gran Canaria.](http://www.ulpgc.es/) 
 #### Puedes visitar el despligue en Heroku aquí: http://acortador-urls.herokuapp.com/
-#### This is an URL Shortener prototype realized as final project for the Degree of Computer Engineering of the [University of Las Palmas de Gran Canaria.](http://www.ulpgc.es/)
+#### This is an URL Shortener prototype realized as final project for the Degree of Computer Engineering at the [University of Las Palmas de Gran Canaria.](http://www.ulpgc.es/)
 #### You can visit the Heroku deployment here: http://acortador-urls.herokuapp.com/
 ![](http://imgur.com/VGGenya.jpg)
 ***
